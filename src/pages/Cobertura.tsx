@@ -3,6 +3,112 @@ import styled from 'styled-components';
 import { MapPin, CheckCircle2, Phone, MessageCircle } from 'lucide-react';
 import Layout from '../components/layout/Layout';
 
+
+
+const Cobertura: React.FC = () => {
+  const cities = [
+    { name: 'Bananal', state: 'São Paulo', status: 'Cobertura Total' },
+    { name: 'Arapeí', state: 'São Paulo', status: 'Cobertura Total' },
+    { name: 'Vassouras', state: 'Rio de Janeiro', status: 'Cobertura Total' },
+    { name: 'São José do Barreiro', state: 'São Paulo', status: 'Cobertura Total' },
+    { name: 'Resende', state: 'Rio de Janeiro', status: 'Cobertura Parcial' },
+    { name: 'Bocaina de Minas', state: 'Minas Gerais', status: 'Cobertura Total' },
+  ];
+
+  return (
+    <Layout>
+      <PageHeader>
+        <h1>Área de Cobertura</h1>
+        <p>
+          Confira as cidades onde a Pulse Telecom está presente com internet de
+          alta velocidade.
+        </p>
+      </PageHeader>
+
+      <CitiesSection>
+        <Container>
+          <SectionTitle>
+            <h2>Cidades Atendidas</h2>
+            <p>Estamos presentes em 6 cidades da região</p>
+          </SectionTitle>
+          <CitiesGrid>
+            {cities.map((city, index) => (
+              <CityCard key={index}>
+                <CityIcon>
+                  <MapPin size={36} />
+                </CityIcon>
+                <CityName>{city.name}</CityName>
+                <CityState>{city.state}</CityState>
+                <CityStatus>
+                  <CheckCircle2 size={16} />
+                  {city.status}
+                </CityStatus>
+              </CityCard>
+            ))}
+          </CitiesGrid>
+        </Container>
+      </CitiesSection>
+
+      <InfoSection>
+        <InfoContent>
+          <InfoText>
+            <h2>
+              Não encontrou sua <span>cidade</span>?
+            </h2>
+            <p>
+              Estamos em constante expansão! Se sua cidade ainda não está na
+              lista, entre em contato conosco. Podemos avaliar a viabilidade
+              de levar nossos serviços até você.
+            </p>
+            <InfoList>
+              <InfoItem>
+                <CheckCircle2 size={20} />
+                Análise de viabilidade técnica gratuita
+              </InfoItem>
+              <InfoItem>
+                <CheckCircle2 size={20} />
+                Planejamento de expansão contínuo
+              </InfoItem>
+              <InfoItem>
+                <CheckCircle2 size={20} />
+                Lista de espera para novas regiões
+              </InfoItem>
+              <InfoItem>
+                <CheckCircle2 size={20} />
+                Atendimento personalizado
+              </InfoItem>
+            </InfoList>
+          </InfoText>
+          <InfoImage>
+            <MapPin size={250} strokeWidth={1} />
+          </InfoImage>
+        </InfoContent>
+      </InfoSection>
+
+      <CTASection>
+        <h2>Quer saber se atendemos sua região?</h2>
+        <p>
+          Entre em contato conosco e descubra se podemos levar internet de
+          qualidade até você!
+        </p>
+        <CTAButtons>
+          <PrimaryButton
+            href="https://wa.me/5524999999999?text=Olá! Gostaria de saber se vocês atendem minha região."
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <MessageCircle size={20} />
+            WhatsApp
+          </PrimaryButton>
+          <SecondaryButton href="tel:+552499999999">
+            <Phone size={20} />
+            Ligar Agora
+          </SecondaryButton>
+        </CTAButtons>
+      </CTASection>
+    </Layout>
+  );
+};
 const PageHeader = styled.section`
   background: linear-gradient(
     135deg,
@@ -271,110 +377,5 @@ const SecondaryButton = styled.a`
     color: ${({ theme }) => theme.colors.primary};
   }
 `;
-
-const Cobertura: React.FC = () => {
-  const cities = [
-    { name: 'Bananal', state: 'São Paulo', status: 'Cobertura Total' },
-    { name: 'Arapeí', state: 'São Paulo', status: 'Cobertura Total' },
-    { name: 'Vassouras', state: 'Rio de Janeiro', status: 'Cobertura Total' },
-    { name: 'São José do Barreiro', state: 'São Paulo', status: 'Cobertura Total' },
-    { name: 'Resende', state: 'Rio de Janeiro', status: 'Cobertura Parcial' },
-    { name: 'Bocaina de Minas', state: 'Minas Gerais', status: 'Cobertura Total' },
-  ];
-
-  return (
-    <Layout>
-      <PageHeader>
-        <h1>Área de Cobertura</h1>
-        <p>
-          Confira as cidades onde a Pulse Telecom está presente com internet de
-          alta velocidade.
-        </p>
-      </PageHeader>
-
-      <CitiesSection>
-        <Container>
-          <SectionTitle>
-            <h2>Cidades Atendidas</h2>
-            <p>Estamos presentes em 6 cidades da região</p>
-          </SectionTitle>
-          <CitiesGrid>
-            {cities.map((city, index) => (
-              <CityCard key={index}>
-                <CityIcon>
-                  <MapPin size={36} />
-                </CityIcon>
-                <CityName>{city.name}</CityName>
-                <CityState>{city.state}</CityState>
-                <CityStatus>
-                  <CheckCircle2 size={16} />
-                  {city.status}
-                </CityStatus>
-              </CityCard>
-            ))}
-          </CitiesGrid>
-        </Container>
-      </CitiesSection>
-
-      <InfoSection>
-        <InfoContent>
-          <InfoText>
-            <h2>
-              Não encontrou sua <span>cidade</span>?
-            </h2>
-            <p>
-              Estamos em constante expansão! Se sua cidade ainda não está na
-              lista, entre em contato conosco. Podemos avaliar a viabilidade
-              de levar nossos serviços até você.
-            </p>
-            <InfoList>
-              <InfoItem>
-                <CheckCircle2 size={20} />
-                Análise de viabilidade técnica gratuita
-              </InfoItem>
-              <InfoItem>
-                <CheckCircle2 size={20} />
-                Planejamento de expansão contínuo
-              </InfoItem>
-              <InfoItem>
-                <CheckCircle2 size={20} />
-                Lista de espera para novas regiões
-              </InfoItem>
-              <InfoItem>
-                <CheckCircle2 size={20} />
-                Atendimento personalizado
-              </InfoItem>
-            </InfoList>
-          </InfoText>
-          <InfoImage>
-            <MapPin size={250} strokeWidth={1} />
-          </InfoImage>
-        </InfoContent>
-      </InfoSection>
-
-      <CTASection>
-        <h2>Quer saber se atendemos sua região?</h2>
-        <p>
-          Entre em contato conosco e descubra se podemos levar internet de
-          qualidade até você!
-        </p>
-        <CTAButtons>
-          <PrimaryButton
-            href="https://wa.me/5524999999999?text=Olá! Gostaria de saber se vocês atendem minha região."
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <MessageCircle size={20} />
-            WhatsApp
-          </PrimaryButton>
-          <SecondaryButton href="tel:+552499999999">
-            <Phone size={20} />
-            Ligar Agora
-          </SecondaryButton>
-        </CTAButtons>
-      </CTASection>
-    </Layout>
-  );
-};
 
 export default Cobertura;

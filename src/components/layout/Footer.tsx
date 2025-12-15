@@ -1,200 +1,173 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import { Wifi, Phone, Mail, MapPin, Facebook, Instagram, Linkedin } from 'lucide-react';
+import React from "react";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+import { MessageCircle } from "lucide-react";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  Facebook,
+  Instagram,
+  Linkedin,
+} from "lucide-react";
 
-const FooterContainer = styled.footer`
-  background: ${({ theme }) => theme.colors.backgroundDark};
-  color: ${({ theme }) => theme.colors.white};
-  padding: 4rem 2rem 2rem;
+// 👉 IMPORT DA LOGO
+
+const Footer: React.FC = () => {
+  return (
+    <Container>
+      <Content>
+        {/* ESQUERDA */}
+        <Left>
+          <h2>Sobre nós</h2>
+          <p>
+            Nascemos para levar conectividade de qualidade a todos. Somos uma
+            equipe comprometida em oferecer uma experiência positiva, unindo
+            tecnologia de ponta a um atendimento ético, transparente e
+            profissional.
+          </p>
+        </Left>
+
+        {/* CENTRO */}
+        <Center>
+          <Social>
+            <img src="/Logo Pulse-Photoroom.png" alt="Logo Pulse" />
+            <Icons>
+              <a href="#">
+                <MessageCircle size={22} />
+              </a>
+              <a href="#">
+                <Instagram size={22} />
+              </a>
+              <a href="#">
+                <Facebook size={22} />
+              </a>
+            </Icons>
+          </Social>
+        </Center>
+
+        {/* DIREITA */}
+        <Right>
+          <h2>Nossos contatos</h2>
+
+          <Contact>
+            <Phone size={20} />
+            <span>(12) 3003 - 5640</span>
+          </Contact>
+
+          <Contact>
+            <span>(12) 3116 - 5043</span>
+          </Contact>
+        </Right>
+      </Content>
+    </Container>
+  );
+};
+
+/* ================== STYLES ================== */
+
+const Container = styled.section`
+  background: linear-gradient(90deg, #0b1a6e 0%, #1f2fbf 50%, #1225c7 100%);
+  padding: 4rem 2rem;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
-const FooterContent = styled.div`
-  max-width: 1280px;
+const Content = styled.div`
+  max-width: 1300px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
   gap: 3rem;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+  @media (max-width: 900px) {
     grid-template-columns: 1fr;
     text-align: center;
   }
 `;
 
-const FooterSection = styled.div`
-  h3 {
-    color: ${({ theme }) => theme.colors.secondary};
-    font-size: 1.25rem;
-    margin-bottom: 1.5rem;
-    font-weight: 600;
+/* ESQUERDA */
+const Left = styled.div`
+  h2 {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    line-height: 1.7;
+    max-width: 420px;
+    color: #e5e7eb;
+  }
+
+  @media (max-width: 900px) {
+    p {
+      margin: 0 auto;
+    }
   }
 `;
 
-const Logo = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-family: ${({ theme }) => theme.fonts.primary};
-  font-size: 1.5rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-
-  svg {
-    color: ${({ theme }) => theme.colors.secondary};
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    justify-content: center;
-  }
-`;
-
-const Description = styled.p`
-  color: ${({ theme }) => theme.colors.gray[400]};
-  line-height: 1.8;
-`;
-
-const FooterLinks = styled.ul`
+/* CENTRO */
+const Center = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
-`;
-
-const FooterLink = styled(Link)`
-  color: ${({ theme }) => theme.colors.gray[400]};
-  transition: color ${({ theme }) => theme.transitions.fast};
-
-  &:hover {
-    color: ${({ theme }) => theme.colors.secondary};
-  }
-`;
-
-const ContactItem = styled.div`
-  display: flex;
   align-items: center;
-  gap: 0.75rem;
-  color: ${({ theme }) => theme.colors.gray[400]};
-  margin-bottom: 1rem;
-
-  svg {
-    color: ${({ theme }) => theme.colors.secondary};
-    flex-shrink: 0;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    justify-content: center;
-  }
+  gap: 1.5rem;
 `;
 
-const SocialLinks = styled.div`
+const Icons = styled.div`
   display: flex;
-  gap: 1rem;
-  margin-top: 1rem;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    justify-content: center;
-  }
-`;
-
-const SocialIcon = styled.a`
-  display: flex;
-  align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  background: ${({ theme }) => theme.colors.primary};
-  border-radius: 50%;
-  color: ${({ theme }) => theme.colors.white};
-  transition: all ${({ theme }) => theme.transitions.fast};
-
-  &:hover {
-    background: ${({ theme }) => theme.colors.secondary};
-    transform: translateY(-3px);
+  a {
+    margin: 10px;
   }
 `;
 
-const FooterBottom = styled.div`
-  max-width: 1280px;
-  margin: 3rem auto 0;
-  padding-top: 2rem;
-  border-top: 1px solid ${({ theme }) => theme.colors.gray[700]};
-  text-align: center;
-  color: ${({ theme }) => theme.colors.gray[500]};
+const Social = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  a {
+    color: #ffffff;
+    transition: 0.3s;
+  }
+
+  a:hover {
+    color: #00ff66;
+  }
+  img {
+    width: 350px;
+    margin-bottom: 20px;
+  }
 `;
 
-const Footer: React.FC = () => {
-  return (
-    <FooterContainer>
-      <FooterContent>
-        <FooterSection>
-          <Logo>
-            <Wifi size={28} />
-            Pulse Telecom
-          </Logo>
-          <Description>
-            Conectando você ao futuro com internet de alta velocidade e qualidade.
-            Sua melhor escolha em telecomunicações.
-          </Description>
-          <SocialLinks>
-            <SocialIcon href="#" aria-label="Facebook">
-              <Facebook size={20} />
-            </SocialIcon>
-            <SocialIcon href="#" aria-label="Instagram">
-              <Instagram size={20} />
-            </SocialIcon>
-            <SocialIcon href="#" aria-label="LinkedIn">
-              <Linkedin size={20} />
-            </SocialIcon>
-          </SocialLinks>
-        </FooterSection>
+/* DIREITA */
+const Right = styled.div`
+  text-align: right;
 
-        <FooterSection>
-          <h3>Links Rápidos</h3>
-          <FooterLinks>
-            <li><FooterLink to="/">Home</FooterLink></li>
-            <li><FooterLink to="/sobre">Sobre Nós</FooterLink></li>
-            <li><FooterLink to="/residencial">Residencial</FooterLink></li>
-            <li><FooterLink to="/corporativo">Corporativo</FooterLink></li>
-            <li><FooterLink to="/cobertura">Cobertura</FooterLink></li>
-          </FooterLinks>
-        </FooterSection>
+  h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+  }
 
-        <FooterSection>
-          <h3>Nossos Planos</h3>
-          <FooterLinks>
-            <li><FooterLink to="/residencial">Internet Residencial</FooterLink></li>
-            <li><FooterLink to="/corporativo">Internet Corporativa</FooterLink></li>
-            <li><FooterLink to="/corporativo">Link Dedicado</FooterLink></li>
-            <li><FooterLink to="/corporativo">Soluções Empresariais</FooterLink></li>
-          </FooterLinks>
-        </FooterSection>
+  @media (max-width: 900px) {
+    text-align: center;
+  }
+`;
 
-        <FooterSection>
-          <h3>Contato</h3>
-          <ContactItem>
-            <Phone size={18} />
-            <span>(24) 9999-9999</span>
-          </ContactItem>
-          <ContactItem>
-            <Mail size={18} />
-            <span>contato@pulsetelecom.com.br</span>
-          </ContactItem>
-          <ContactItem>
-            <MapPin size={18} />
-            <span>Atendemos em 6 cidades da região</span>
-          </ContactItem>
-        </FooterSection>
-      </FooterContent>
+const Contact = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.6rem;
+  margin-bottom: 0.8rem;
+  font-size: 1.1rem;
 
-      <FooterBottom>
-        <p>&copy; {new Date().getFullYear()} Pulse Telecom. Todos os direitos reservados.</p>
-      </FooterBottom>
-    </FooterContainer>
-  );
-};
+  @media (max-width: 900px) {
+    justify-content: center;
+  }
+`;
 
 export default Footer;

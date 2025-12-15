@@ -4,7 +4,6 @@ import Navbar from './Navbar';
 import Footer from './Footer';
 
 const Main = styled.main`
-  padding-top: 70px;
   min-height: 100vh;
 `;
 

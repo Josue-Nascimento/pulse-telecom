@@ -4,6 +4,119 @@ import { Link } from 'react-router-dom';
 import { Wifi, Zap, Shield, Users, Building2, Home as HomeIcon, MapPin, ArrowRight } from 'lucide-react';
 import Layout from '../components/layout/Layout';
 
+
+
+const Home: React.FC = () => {
+  const features = [
+    {
+      icon: <Zap size={32} />,
+      title: 'Ultra Velocidade',
+      description: 'Internet de alta velocidade com fibra óptica de última geração.',
+    },
+    {
+      icon: <Shield size={32} />,
+      title: 'Conexão Estável',
+      description: 'Garantia de estabilidade e baixa latência para suas atividades.',
+    },
+    {
+      icon: <Users size={32} />,
+      title: 'Suporte 24/7',
+      description: 'Equipe técnica disponível para ajudar quando você precisar.',
+    },
+  ];
+
+  const cities = [
+    'Bananal',
+    'Arapeí',
+    'Vassouras',
+    'São José do Barreiro',
+    'Resende',
+    'Bocaina de Minas',
+  ];
+
+  return (
+    <Layout>
+    <img src='imagemBase.png'/>
+
+      <FeaturesSection>
+        <SectionTitle>
+          <h2>Por que escolher a Pulse Telecom?</h2>
+          <p>
+            Oferecemos a melhor experiência em conectividade para sua casa ou empresa.
+          </p>
+        </SectionTitle>
+        <FeaturesGrid>
+          {features.map((feature, index) => (
+            <FeatureCard key={index}>
+              <FeatureIcon>{feature.icon}</FeatureIcon>
+              <FeatureTitle>{feature.title}</FeatureTitle>
+              <FeatureText>{feature.description}</FeatureText>
+            </FeatureCard>
+          ))}
+        </FeaturesGrid>
+      </FeaturesSection>
+
+      <PlansSection>
+        <SectionTitle>
+          <h2>Nossas Soluções</h2>
+          <p>Escolha o plano ideal para suas necessidades.</p>
+        </SectionTitle>
+        <PlansGrid>
+          <PlanCard to="/residencial">
+            <PlanIcon $variant="residential">
+              <HomeIcon size={40} />
+            </PlanIcon>
+            <PlanTitle>Internet Residencial</PlanTitle>
+            <PlanDescription>
+              Planos de internet para sua casa com velocidades de até 500 Mbps.
+              Streaming, jogos e trabalho remoto sem interrupções.
+            </PlanDescription>
+            <PlanCTA>
+              Conhecer planos <ArrowRight size={18} />
+            </PlanCTA>
+          </PlanCard>
+
+          <PlanCard to="/corporativo">
+            <PlanIcon $variant="corporate">
+              <Building2 size={40} />
+            </PlanIcon>
+            <PlanTitle>Internet Corporativa</PlanTitle>
+            <PlanDescription>
+              Soluções empresariais com link dedicado e suporte prioritário.
+              Ideal para empresas de todos os tamanhos.
+            </PlanDescription>
+            <PlanCTA>
+              Conhecer soluções <ArrowRight size={18} />
+            </PlanCTA>
+          </PlanCard>
+        </PlansGrid>
+      </PlansSection>
+
+      <CoverageSection>
+        <CoverageContent>
+          <h2>Área de Cobertura</h2>
+          <p>
+            Estamos presentes em 6 cidades da região, levando internet de qualidade
+            para você.
+          </p>
+          <CitiesGrid>
+            {cities.map((city) => (
+              <CityTag key={city}>
+                <MapPin size={18} />
+                {city}
+              </CityTag>
+            ))}
+          </CitiesGrid>
+          <PrimaryButton to="/cobertura">
+            Ver cobertura completa <ArrowRight size={18} />
+          </PrimaryButton>
+        </CoverageContent>
+      </CoverageSection>
+    </Layout>
+  );
+};
+
+export default Home;
 const HeroSection = styled.section`
   background: linear-gradient(
     135deg,
@@ -349,140 +462,3 @@ const CityTag = styled.span`
     color: ${({ theme }) => theme.colors.secondaryLight};
   }
 `;
-
-const Home: React.FC = () => {
-  const features = [
-    {
-      icon: <Zap size={32} />,
-      title: 'Ultra Velocidade',
-      description: 'Internet de alta velocidade com fibra óptica de última geração.',
-    },
-    {
-      icon: <Shield size={32} />,
-      title: 'Conexão Estável',
-      description: 'Garantia de estabilidade e baixa latência para suas atividades.',
-    },
-    {
-      icon: <Users size={32} />,
-      title: 'Suporte 24/7',
-      description: 'Equipe técnica disponível para ajudar quando você precisar.',
-    },
-  ];
-
-  const cities = [
-    'Bananal',
-    'Arapeí',
-    'Vassouras',
-    'São José do Barreiro',
-    'Resende',
-    'Bocaina de Minas',
-  ];
-
-  return (
-    <Layout>
-      <HeroSection>
-        <HeroContent>
-          <HeroText>
-            <h1>
-              Conectando você ao <span>futuro</span>
-            </h1>
-            <p>
-              Internet de alta velocidade com a melhor tecnologia em fibra óptica.
-              Planos residenciais e corporativos que cabem no seu bolso.
-            </p>
-            <HeroButtons>
-              <PrimaryButton to="/residencial">
-                <HomeIcon size={20} />
-                Planos Residenciais
-              </PrimaryButton>
-              <SecondaryButton to="/corporativo">
-                <Building2 size={20} />
-                Soluções Corporativas
-              </SecondaryButton>
-            </HeroButtons>
-          </HeroText>
-          <HeroImage>
-            <Wifi size={300} strokeWidth={1} />
-          </HeroImage>
-        </HeroContent>
-      </HeroSection>
-
-      <FeaturesSection>
-        <SectionTitle>
-          <h2>Por que escolher a Pulse Telecom?</h2>
-          <p>
-            Oferecemos a melhor experiência em conectividade para sua casa ou empresa.
-          </p>
-        </SectionTitle>
-        <FeaturesGrid>
-          {features.map((feature, index) => (
-            <FeatureCard key={index}>
-              <FeatureIcon>{feature.icon}</FeatureIcon>
-              <FeatureTitle>{feature.title}</FeatureTitle>
-              <FeatureText>{feature.description}</FeatureText>
-            </FeatureCard>
-          ))}
-        </FeaturesGrid>
-      </FeaturesSection>
-
-      <PlansSection>
-        <SectionTitle>
-          <h2>Nossas Soluções</h2>
-          <p>Escolha o plano ideal para suas necessidades.</p>
-        </SectionTitle>
-        <PlansGrid>
-          <PlanCard to="/residencial">
-            <PlanIcon $variant="residential">
-              <HomeIcon size={40} />
-            </PlanIcon>
-            <PlanTitle>Internet Residencial</PlanTitle>
-            <PlanDescription>
-              Planos de internet para sua casa com velocidades de até 500 Mbps.
-              Streaming, jogos e trabalho remoto sem interrupções.
-            </PlanDescription>
-            <PlanCTA>
-              Conhecer planos <ArrowRight size={18} />
-            </PlanCTA>
-          </PlanCard>
-
-          <PlanCard to="/corporativo">
-            <PlanIcon $variant="corporate">
-              <Building2 size={40} />
-            </PlanIcon>
-            <PlanTitle>Internet Corporativa</PlanTitle>
-            <PlanDescription>
-              Soluções empresariais com link dedicado e suporte prioritário.
-              Ideal para empresas de todos os tamanhos.
-            </PlanDescription>
-            <PlanCTA>
-              Conhecer soluções <ArrowRight size={18} />
-            </PlanCTA>
-          </PlanCard>
-        </PlansGrid>
-      </PlansSection>
-
-      <CoverageSection>
-        <CoverageContent>
-          <h2>Área de Cobertura</h2>
-          <p>
-            Estamos presentes em 6 cidades da região, levando internet de qualidade
-            para você.
-          </p>
-          <CitiesGrid>
-            {cities.map((city) => (
-              <CityTag key={city}>
-                <MapPin size={18} />
-                {city}
-              </CityTag>
-            ))}
-          </CitiesGrid>
-          <PrimaryButton to="/cobertura">
-            Ver cobertura completa <ArrowRight size={18} />
-          </PrimaryButton>
-        </CoverageContent>
-      </CoverageSection>
-    </Layout>
-  );
-};
-
-export default Home;
