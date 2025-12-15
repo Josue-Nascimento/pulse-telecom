@@ -1,48 +1,86 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
-import { Wifi, Zap, Shield, Users, Building2, Home as HomeIcon, MapPin, ArrowRight } from 'lucide-react';
-import Layout from '../components/layout/Layout';
-
-
+import React from "react";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
+import {
+  Wifi,
+  Zap,
+  Shield,
+  Users,
+  Building2,
+  Home as HomeIcon,
+  MapPin,
+  ArrowRight,
+} from "lucide-react";
+import Layout from "../components/layout/Layout";
 
 const Home: React.FC = () => {
   const features = [
     {
       icon: <Zap size={32} />,
-      title: 'Ultra Velocidade',
-      description: 'Internet de alta velocidade com fibra óptica de última geração.',
+      title: "Ultra Velocidade",
+      description:
+        "Internet de alta velocidade com fibra óptica de última geração.",
     },
     {
       icon: <Shield size={32} />,
-      title: 'Conexão Estável',
-      description: 'Garantia de estabilidade e baixa latência para suas atividades.',
+      title: "Conexão Estável",
+      description:
+        "Garantia de estabilidade e baixa latência para suas atividades.",
     },
     {
       icon: <Users size={32} />,
-      title: 'Suporte 24/7',
-      description: 'Equipe técnica disponível para ajudar quando você precisar.',
+      title: "Suporte 24/7",
+      description:
+        "Equipe técnica disponível para ajudar quando você precisar.",
     },
   ];
 
   const cities = [
-    'Bananal',
-    'Arapeí',
-    'Vassouras',
-    'São José do Barreiro',
-    'Resende',
-    'Bocaina de Minas',
+    "Bananal",
+    "Arapeí",
+    "Vassouras",
+    "São José do Barreiro",
+    "Resende",
+    "Bocaina de Minas",
   ];
 
   return (
     <Layout>
-    <img src='imagemBase.png'/>
+      <ImagePulse>
+        <img src="imagemBase.png" />
+      </ImagePulse>
+      <HeroSection>
+        <HeroContent>
+          <HeroText>
+            <h1>A melhor experiência em Wi-Fi ao seu alcance com o Wi-Fi 6</h1>
+            <p>
+              Experimente uma conexão de alta velocidade com velocidades de até
+              <strong> 1 GIGA</strong>. Navegue, jogue e faça downloads com
+              estabilidade e desempenho incomparáveis.
+            </p>
 
+            <HeroButton to="/residencial">
+              Soluções residenciais <ArrowRight size={18} />
+            </HeroButton>
+          </HeroText>
+
+          <HeroImages>
+            <MainImage>
+              <img src="imagemBase.png" alt="Cliente usando internet" />
+            </MainImage>
+
+            <FloatingImage>
+              <img src="jogando.jpg" alt="Jogos online" />
+            </FloatingImage>
+          </HeroImages>
+        </HeroContent>
+      </HeroSection>
       <FeaturesSection>
         <SectionTitle>
           <h2>Por que escolher a Pulse Telecom?</h2>
           <p>
-            Oferecemos a melhor experiência em conectividade para sua casa ou empresa.
+            Oferecemos a melhor experiência em conectividade para sua casa ou
+            empresa.
           </p>
         </SectionTitle>
         <FeaturesGrid>
@@ -55,7 +93,6 @@ const Home: React.FC = () => {
           ))}
         </FeaturesGrid>
       </FeaturesSection>
-
       <PlansSection>
         <SectionTitle>
           <h2>Nossas Soluções</h2>
@@ -91,13 +128,12 @@ const Home: React.FC = () => {
           </PlanCard>
         </PlansGrid>
       </PlansSection>
-
       <CoverageSection>
         <CoverageContent>
           <h2>Área de Cobertura</h2>
           <p>
-            Estamos presentes em 6 cidades da região, levando internet de qualidade
-            para você.
+            Estamos presentes em 6 cidades da região, levando internet de
+            qualidade para você.
           </p>
           <CitiesGrid>
             {cities.map((city) => (
@@ -117,76 +153,13 @@ const Home: React.FC = () => {
 };
 
 export default Home;
-const HeroSection = styled.section`
-  background: linear-gradient(
-    135deg,
-    ${({ theme }) => theme.colors.primary} 0%,
-    ${({ theme }) => theme.colors.primaryLight} 50%,
-    ${({ theme }) => theme.colors.secondary} 100%
-  );
-  color: ${({ theme }) => theme.colors.white};
-  padding: 6rem 2rem 8rem;
-  position: relative;
-  overflow: hidden;
 
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  }
-`;
-
-const HeroContent = styled.div`
-  max-width: 1280px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
-  position: relative;
-  z-index: 1;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-`;
-
-const HeroText = styled.div`
-  h1 {
-    font-size: 3.5rem;
-    font-weight: 800;
-    margin-bottom: 1.5rem;
-    line-height: 1.1;
-
-    span {
-      color: ${({ theme }) => theme.colors.secondaryLight};
+const ImagePulse = styled.div`
+  @media (max-width: 1024px) {
+    img {
+      width: 500px; /* celular / tablet */
+      height: 180px;
     }
-
-    @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-      font-size: 2.5rem;
-    }
-  }
-
-  p {
-    font-size: 1.25rem;
-    opacity: 0.9;
-    margin-bottom: 2rem;
-    line-height: 1.8;
-  }
-`;
-
-const HeroButtons = styled.div`
-  display: flex;
-  gap: 1rem;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    justify-content: center;
-    flex-wrap: wrap;
   }
 `;
 
@@ -205,41 +178,6 @@ const PrimaryButton = styled(Link)`
   &:hover {
     transform: translateY(-3px);
     box-shadow: ${({ theme }) => theme.shadows.large};
-  }
-`;
-
-const SecondaryButton = styled(Link)`
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: transparent;
-  color: ${({ theme }) => theme.colors.white};
-  padding: 1rem 2rem;
-  border-radius: 2rem;
-  font-weight: 600;
-  font-size: 1rem;
-  border: 2px solid ${({ theme }) => theme.colors.white};
-  transition: all ${({ theme }) => theme.transitions.fast};
-
-  &:hover {
-    background: ${({ theme }) => theme.colors.white};
-    color: ${({ theme }) => theme.colors.primary};
-  }
-`;
-
-const HeroImage = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  svg {
-    width: 300px;
-    height: 300px;
-    opacity: 0.9;
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    display: none;
   }
 `;
 
@@ -364,11 +302,11 @@ const PlanCard = styled(Link)`
   }
 `;
 
-const PlanIcon = styled.div<{ $variant: 'residential' | 'corporate' }>`
+const PlanIcon = styled.div<{ $variant: "residential" | "corporate" }>`
   width: 80px;
   height: 80px;
   background: ${({ theme, $variant }) =>
-    $variant === 'residential'
+    $variant === "residential"
       ? `linear-gradient(135deg, ${theme.colors.secondary}, ${theme.colors.accent})`
       : `linear-gradient(135deg, ${theme.colors.primary}, ${theme.colors.primaryLight})`};
   border-radius: 50%;
@@ -460,5 +398,133 @@ const CityTag = styled.span`
 
   svg {
     color: ${({ theme }) => theme.colors.secondaryLight};
+  }
+`;
+const HeroSection = styled.section`
+  padding: 5rem 2rem;
+  background: ${({ theme }) => theme.colors.white};
+`;
+
+const HeroContent = styled.div`
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  gap: 3rem;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+`;
+
+const HeroText = styled.div`
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 1.2rem;
+
+    background: linear-gradient(90deg, #0b1a6e, #1f2fbf, #3b4cff);
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+    span {
+      background: linear-gradient(90deg, #0b1a6e, #1f2fbf, #3b4cff);
+
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 2.2rem;
+    }
+  }
+
+  p {
+    font-size: 1.1rem;
+
+    max-width: 520px;
+    margin-bottom: 2rem;
+
+    @media (max-width: 1024px) {
+      margin: 0 auto 2rem;
+    }
+  }
+`;
+
+const HeroButton = styled.button`
+  display: inline-flex;
+  align-items: center;      /* eixo vertical */
+  justify-content: center;  /* eixo horizontal */
+  text-align: center;
+
+  gap: 0.5rem;
+  width: 50%;
+  height: 60px;
+
+  background: linear-gradient(90deg, #0b1a6e, #1f2fbf, #3b4cff);
+  color: #ffffff;
+  padding: 0.9rem 2.2rem;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+
+  &:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+  }
+  /* ===== TABLET ===== */
+  @media (max-width: 1024px) {
+    width: 70%;
+  }
+
+  /* ===== MOBILE ===== */
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 56px;
+    font-size: 0.95rem;
+  }
+`;
+
+
+const HeroImages = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+`;
+
+const MainImage = styled.div`
+  img {
+    width: 360px;
+    height: 360px;
+    border-radius: 50%;
+    object-fit: cover;
+
+    @media (max-width: 768px) {
+      width: 280px;
+      height: 280px;
+    }
+  }
+`;
+
+const FloatingImage = styled.div`
+  position: absolute;
+  bottom: -40px;
+  right: -20px;
+
+  img {
+    width: 260px;
+    border-radius: 1rem;
+    box-shadow: ${({ theme }) => theme.shadows.large};
+
+    @media (max-width: 768px) {
+      width: 200px;
+      bottom: -20px;
+      right: 0;
+    }
   }
 `;
