@@ -8,6 +8,7 @@ import Residencial from './pages/Residencial';
 import Corporativo from './pages/Corporativo';
 import Cobertura from './pages/Cobertura';
 import NotFound from './pages/NotFound';
+import Navbar from './components/layout/Navbar';
 
 const App = () => (
   <ThemeProvider theme={theme}>

@@ -59,7 +59,11 @@ const Home: React.FC = () => {
               estabilidade e desempenho incomparáveis.
             </p>
 
-            <HeroButton to="/residencial">
+            <HeroButton
+              href="https://pulsetelecom.conecte.ai/?cupom=site"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Soluções residenciais <ArrowRight size={18} />
             </HeroButton>
           </HeroText>
@@ -75,24 +79,7 @@ const Home: React.FC = () => {
           </HeroImages>
         </HeroContent>
       </HeroSection>
-      <FeaturesSection>
-        <SectionTitle>
-          <h2>Por que escolher a Pulse Telecom?</h2>
-          <p>
-            Oferecemos a melhor experiência em conectividade para sua casa ou
-            empresa.
-          </p>
-        </SectionTitle>
-        <FeaturesGrid>
-          {features.map((feature, index) => (
-            <FeatureCard key={index}>
-              <FeatureIcon>{feature.icon}</FeatureIcon>
-              <FeatureTitle>{feature.title}</FeatureTitle>
-              <FeatureText>{feature.description}</FeatureText>
-            </FeatureCard>
-          ))}
-        </FeaturesGrid>
-      </FeaturesSection>
+
       <PlansSection>
         <SectionTitle>
           <h2>Nossas Soluções</h2>
@@ -128,7 +115,7 @@ const Home: React.FC = () => {
           </PlanCard>
         </PlansGrid>
       </PlansSection>
-      <CoverageSection>
+      <CoverageSection id="cobertura">
         <CoverageContent>
           <h2>Área de Cobertura</h2>
           <p>
@@ -181,11 +168,6 @@ const PrimaryButton = styled(Link)`
   }
 `;
 
-const FeaturesSection = styled.section`
-  padding: 5rem 2rem;
-  background: ${({ theme }) => theme.colors.white};
-`;
-
 const SectionTitle = styled.div`
   text-align: center;
   margin-bottom: 3rem;
@@ -206,65 +188,6 @@ const SectionTitle = styled.div`
     max-width: 600px;
     margin: 0 auto;
   }
-`;
-
-const FeaturesGrid = styled.div`
-  max-width: 1280px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    grid-template-columns: 1fr;
-  }
-`;
-
-const FeatureCard = styled.div`
-  background: ${({ theme }) => theme.colors.gray[100]};
-  padding: 2rem;
-  border-radius: 1rem;
-  text-align: center;
-  transition: all ${({ theme }) => theme.transitions.medium};
-
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: ${({ theme }) => theme.shadows.medium};
-  }
-`;
-
-const FeatureIcon = styled.div`
-  width: 70px;
-  height: 70px;
-  background: linear-gradient(
-    135deg,
-    ${({ theme }) => theme.colors.primary},
-    ${({ theme }) => theme.colors.secondary}
-  );
-  border-radius: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 1.5rem;
-
-  svg {
-    color: ${({ theme }) => theme.colors.white};
-  }
-`;
-
-const FeatureTitle = styled.h3`
-  font-size: 1.25rem;
-  color: ${({ theme }) => theme.colors.primary};
-  margin-bottom: 0.75rem;
-`;
-
-const FeatureText = styled.p`
-  color: ${({ theme }) => theme.colors.textLight};
-  line-height: 1.7;
 `;
 
 const PlansSection = styled.section`
@@ -455,14 +378,14 @@ const HeroText = styled.div`
   }
 `;
 
-const HeroButton = styled.button`
+const HeroButton = styled.a`
   display: inline-flex;
-  align-items: center;      /* eixo vertical */
-  justify-content: center;  /* eixo horizontal */
+  align-items: center; /* eixo vertical */
+  justify-content: center; /* eixo horizontal */
   text-align: center;
 
   gap: 0.5rem;
-  width: 50%;
+  width: 42%;
   height: 60px;
 
   background: linear-gradient(90deg, #0b1a6e, #1f2fbf, #3b4cff);
@@ -489,7 +412,6 @@ const HeroButton = styled.button`
     font-size: 0.95rem;
   }
 `;
-
 
 const HeroImages = styled.div`
   position: relative;

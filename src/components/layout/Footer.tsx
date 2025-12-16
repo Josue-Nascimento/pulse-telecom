@@ -26,6 +26,9 @@ const Footer: React.FC = () => {
             tecnologia de ponta a um atendimento ético, transparente e
             profissional.
           </p>
+          <br/>
+          <h3>Contrato de prestação de serviços</h3>
+          <p className="cnpj">PULSE GESTÃO DE DADOS LTDA 07.054.431/0001-80</p>
         </Left>
 
         {/* CENTRO */}
@@ -70,38 +73,44 @@ const Container = styled.section`
   background: linear-gradient(90deg, #0b1a6e 0%, #1f2fbf 50%, #1225c7 100%);
   padding: 4rem 2rem;
   color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 `;
 
 const Content = styled.div`
-  max-width: 1300px;
+  max-width: 100%px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  width: 100%;
+
+  display: flex;
   align-items: center;
+  justify-content: space-between;
+
   gap: 3rem;
 
   @media (max-width: 900px) {
-    grid-template-columns: 1fr;
+    flex-direction: column;
     text-align: center;
   }
 `;
 
+
 /* ESQUERDA */
 const Left = styled.div`
   h2 {
-    font-size: 2.2rem;
+    font-size: 50px;
     margin-bottom: 1rem;
+    font-weight: bolder;
   }
 
   p {
     line-height: 1.7;
     max-width: 420px;
     color: #e5e7eb;
+    font-weight: 700;
   }
-
+  p.cnpj{
+    margin-top: 5px;
+    font-size:10px;
+  }
   @media (max-width: 900px) {
     p {
       margin: 0 auto;
@@ -120,6 +129,7 @@ const Center = styled.div`
 const Icons = styled.div`
   display: flex;
   justify-content: center;
+  margin-right: 90px;
   a {
     margin: 10px;
   }
@@ -138,8 +148,9 @@ const Social = styled.div`
     color: #00ff66;
   }
   img {
-    width: 350px;
+    width: 400px;
     margin-bottom: 20px;
+    margin-right: 90px;
   }
 `;
 

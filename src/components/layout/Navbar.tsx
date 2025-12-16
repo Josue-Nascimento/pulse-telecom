@@ -1,18 +1,47 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
-import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, User, MessageCircle, Facebook, Instagram } from 'lucide-react';
-
+import React, { useState } from "react";
+import styled from "styled-components";
+import { Link, useLocation } from "react-router-dom";
+import {
+  Menu,
+  X,
+  User,
+  MessageCircle,
+  Facebook,
+  Instagram,
+} from "lucide-react";
+import { useNavigate } from "react-router-dom";
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
-  const navItems = [
-    { path: '/sobre', label: 'Sobre nós' },
-    { path: '/residencial', label: 'Soluções residenciais' },
-    { path: '/corporativo', label: 'Soluções corporativas' },
-    { path: '/cobertura', label: 'Cobertura' },
-  ];
+const navItems = [
+  { path: '/sobre', label: 'Sobre nós' },
+  { path: '/residencial', label: 'Soluções residenciais' },
+  { path: '/corporativo', label: 'Soluções corporativas' },
+  { path: 'coverage', label: 'Cobertura', isScroll: true },
+];
+
+
+  const navigate = useNavigate();
+
+  const handleScrollToCoverage = () => {
+    setIsOpen(false); // FECHA O MENU
+
+    const scroll = () => {
+      const section = document.getElementById("cobertura");
+      section?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    };
+
+    if (location.pathname === "/") {
+      setTimeout(scroll, 300); // espera menu fechar
+    } else {
+      navigate("/");
+      setTimeout(scroll, 500); // espera navegação + menu
+    }
+  };
 
   return (
     <Nav>
@@ -22,15 +51,25 @@ const Navbar: React.FC = () => {
         </Logo>
 
         <DesktopNav>
-          {navItems.map(item => (
-            <NavItem
-              key={item.path}
-              to={item.path}
-              $active={location.pathname === item.path}
-            >
-              {item.label}
-            </NavItem>
-          ))}
+          {navItems.map((item) =>
+            item.path === "#cobertura" ? (
+              <NavItem
+                as="button"
+                key={item.label}
+                onClick={handleScrollToCoverage}
+              >
+                {item.label}
+              </NavItem>
+            ) : (
+              <NavItem
+                key={item.path}
+                to={item.path}
+                $active={location.pathname === item.path}
+              >
+                {item.label}
+              </NavItem>
+            )
+          )}
         </DesktopNav>
 
         <RightGroup>
@@ -38,11 +77,23 @@ const Navbar: React.FC = () => {
             <ClientArea href="#">
               <User size={14} /> Área do cliente
             </ClientArea>
-            <SocialIcon><MessageCircle size={16} /></SocialIcon>
-            <SocialIcon><Facebook size={16} /></SocialIcon>
-            <SocialIcon><Instagram size={16} /></SocialIcon>
+            <SocialIcon>
+              <MessageCircle size={16} />
+            </SocialIcon>
+            <SocialIcon>
+              <Facebook size={16} />
+            </SocialIcon>
+            <SocialIcon>
+              <Instagram size={16} />
+            </SocialIcon>
           </TopActions>
-          <CTAButton to="/cobertura">Assine já!</CTAButton>
+          <CTAButton
+  href="https://pulsetelecom.conecte.ai/?cupom=site"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Assine já!
+</CTAButton>
         </RightGroup>
 
         <MobileButton onClick={() => setIsOpen(!isOpen)}>
@@ -50,18 +101,36 @@ const Navbar: React.FC = () => {
         </MobileButton>
       </NavContainer>
 
-      <MobileMenu $open={isOpen}>
-        {navItems.map(item => (
-          <MobileLink
-            key={item.path}
-            to={item.path}
-            onClick={() => setIsOpen(false)}
-          >
-            {item.label}
-          </MobileLink>
-        ))}
-        <CTAButton to="/cobertura">Assine já!</CTAButton>
-      </MobileMenu>
+     <MobileMenu $open={isOpen}>
+  {navItems.map(item =>
+    item.isScroll ? (
+      <MobileLink
+        as="button"
+        key={item.label}
+        onClick={handleScrollToCoverage}
+      >
+        {item.label}
+      </MobileLink>
+    ) : (
+      <MobileLink
+        key={item.path}
+        to={item.path}
+        onClick={() => setIsOpen(false)}
+      >
+        {item.label}
+      </MobileLink>
+    )
+  )}
+
+  <CTAButton
+  href="https://pulsetelecom.conecte.ai/?cupom=site"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Assine já!
+</CTAButton>
+</MobileMenu>
+
     </Nav>
   );
 };
@@ -77,7 +146,12 @@ const Nav = styled.nav`
   height: 110px;
   display: flex;
   align-items: center;
-  position: relative;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
 `;
 
 const NavContainer = styled.div`
@@ -91,7 +165,9 @@ const NavContainer = styled.div`
 `;
 
 const Logo = styled(Link)`
-  img { width: 180px; }
+  img {
+    width: 180px;
+  }
 `;
 
 /* ===== DESKTOP ===== */
@@ -105,7 +181,7 @@ const DesktopNav = styled.div`
 `;
 
 const NavItem = styled(Link)<{ $active?: boolean }>`
-  color: ${({ $active }) => ($active ? '#00ff66' : '#fff')};
+  color: ${({ $active }) => ($active ? "#00ff66" : "#fff")};
   text-decoration: none;
   font-size: 18px;
   font-weight: 500;
@@ -143,7 +219,9 @@ const ClientArea = styled.a`
   font-weight: 600;
   text-decoration: none;
 
-  &:hover { text-decoration: underline; }
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 const SocialIcon = styled.a`
@@ -151,7 +229,7 @@ const SocialIcon = styled.a`
   display: flex;
 `;
 
-const CTAButton = styled(Link)`
+const CTAButton = styled.a`
   background: linear-gradient(
     to right,
     #00ff3b 0%,
@@ -197,7 +275,7 @@ const MobileMenu = styled.div<{ $open: boolean }>`
   left: 0;
   right: 0;
   background: linear-gradient(180deg, #0b1a6e, #1f2fbf);
-  display: ${({ $open }) => ($open ? 'flex' : 'none')};
+  display: ${({ $open }) => ($open ? "flex" : "none")};
   flex-direction: column;
   align-items: center;
   gap: 1.2rem;
@@ -209,5 +287,7 @@ const MobileLink = styled(Link)`
   font-size: 1.2rem;
   text-decoration: none;
 
-  &:hover { color: #00ff66; }
+  &:hover {
+    color: #00ff66;
+  }
 `;

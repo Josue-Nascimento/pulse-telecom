@@ -5,6 +5,7 @@ import Footer from './Footer';
 
 const Main = styled.main`
   min-height: 100vh;
+  padding-top: 80px;
 `;
 
 interface LayoutProps {
