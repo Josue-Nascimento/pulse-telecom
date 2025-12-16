@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import Videos from "../pages/Videos";
+
 import {
   Wifi,
   Zap,
@@ -12,6 +14,9 @@ import {
   ArrowRight,
 } from "lucide-react";
 import Layout from "../components/layout/Layout";
+import bgPulse from "/Elemento Gráfico Pulse.png";
+import chipPulse from "/Elemento Gráfico Chip Pulse.png";
+import telefonePulse from "/Elemento Gráfico Telefone Fixo.png";
 
 const Home: React.FC = () => {
   const features = [
@@ -47,7 +52,7 @@ const Home: React.FC = () => {
   return (
     <Layout>
       <ImagePulse>
-        <img src="imagemBase.png" />
+     <Videos/>
       </ImagePulse>
       <HeroSection>
         <HeroContent>
@@ -79,7 +84,34 @@ const Home: React.FC = () => {
           </HeroImages>
         </HeroContent>
       </HeroSection>
+      <Section>
+        <BackgroundPulse />
 
+        <Content>
+          {/* ESQUERDA */}
+          <Images>
+            <Chip src={chipPulse} alt="Chip Pulse" />
+            <Phone src={telefonePulse} alt="Telefone Fixo Pulse" />
+          </Images>
+
+          {/* DIREITA */}
+          <Text>
+            <h2>Tenha uma conexão completa</h2>
+
+            <p>
+              Em casa ou no escritório, desfrute da clareza e estabilidade da
+              nossa Telefonia Fixa Inteligente, com chamadas de voz em alta
+              definição. Na rua, leve a ultravelocidade no bolso com nossa rede
+              Móvel 5G, que garante navegação, streaming e downloads
+              instantâneos onde você estiver. Fixo ou móvel, a mesma excelência.
+              Esteja sempre à frente com a tecnologia que une todos os seus
+              mundos.
+            </p>
+
+            <ActionButton href="#">Soluções para comunicação</ActionButton>
+          </Text>
+        </Content>
+      </Section>
       <PlansSection>
         <SectionTitle>
           <h2>Nossas Soluções</h2>
@@ -450,3 +482,117 @@ const FloatingImage = styled.div`
     }
   }
 `;
+
+ //estilos do titulo tenha uma conexao completa, telefone e chip
+const Section = styled.section`
+  position: relative;
+  overflow: hidden;
+
+  background: linear-gradient(90deg, #0b1a6e 0%, #1f2fbf 50%, #1225c7 100%);
+
+  padding: 6rem 2rem;
+`;
+
+const BackgroundPulse = styled.div`
+  position: absolute;
+  inset: 0;
+
+  background-image: url("/Elemento Gráfico Pulse.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 180%;
+
+  opacity: 0.80;
+  z-index: 1;
+`;
+
+const Content = styled.div`
+  position: relative;
+  z-index: 2;
+  max-width: 1300px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  align-items: center;
+  gap: 4rem;
+
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+`;
+
+/* IMAGENS */
+const Images = styled.div`
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+`;
+
+const Chip = styled.img`
+  width: 450px;
+  position: absolute;
+  top: -100px;
+  transform: rotate(-8deg);
+
+  @media (max-width: 900px) {
+    position: static;
+    margin-bottom: 1.5rem;
+
+  }
+`;
+
+const Phone = styled.img`
+  width: 470px;position: relative;
+  top: 80px;
+`;
+
+/* TEXTO */
+const Text = styled.div`
+background-color:black;
+width: 100%;
+  color: #ffffff;
+
+  h2 {
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
+
+    @media (max-width: 768px) {
+      font-size: 2.2rem;
+    }
+  }
+
+  p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    max-width: 520px;
+    margin-bottom: 2.5rem;
+
+    @media (max-width: 900px) {
+      margin: 0 auto 2.5rem;
+    }
+  }
+`;
+
+const ActionButton = styled.a`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #ffffff;
+  color: #1f2fbf;
+  font-weight: 600;
+
+  padding: 1rem 2.4rem;
+  border-radius: 2rem;
+  text-decoration: none;
+  transition: 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  }
+`;
+//============================================================
