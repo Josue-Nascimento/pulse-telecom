@@ -14,13 +14,12 @@ const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
-const navItems = [
-  { path: '/sobre', label: 'Sobre nós' },
-  { path: '/residencial', label: 'Soluções residenciais' },
-  { path: '/corporativo', label: 'Soluções corporativas' },
-  { path: 'coverage', label: 'Cobertura', isScroll: true },
-];
-
+  const navItems = [
+    { path: "/sobre", label: "Sobre nós" },
+    { path: "/residencial", label: "Soluções residenciais" },
+    { path: "/corporativo", label: "Soluções corporativas" },
+    { path: "/cobertura", label: "Cobertura" }, // 👈 AGORA É ROTA
+  ];
 
   const navigate = useNavigate();
 
@@ -51,25 +50,15 @@ const navItems = [
         </Logo>
 
         <DesktopNav>
-          {navItems.map((item) =>
-            item.path === "#cobertura" ? (
-              <NavItem
-                as="button"
-                key={item.label}
-                onClick={handleScrollToCoverage}
-              >
-                {item.label}
-              </NavItem>
-            ) : (
-              <NavItem
-                key={item.path}
-                to={item.path}
-                $active={location.pathname === item.path}
-              >
-                {item.label}
-              </NavItem>
-            )
-          )}
+          {navItems.map((item) => (
+            <NavItem
+              key={item.path}
+              to={item.path}
+              $active={location.pathname === item.path}
+            >
+              {item.label}
+            </NavItem>
+          ))}
         </DesktopNav>
 
         <RightGroup>
@@ -88,12 +77,12 @@ const navItems = [
             </SocialIcon>
           </TopActions>
           <CTAButton
-  href="https://pulsetelecom.conecte.ai/?cupom=site"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  Assine já!
-</CTAButton>
+            href="https://pulsetelecom.conecte.ai/?cupom=site"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Assine já!
+          </CTAButton>
         </RightGroup>
 
         <MobileButton onClick={() => setIsOpen(!isOpen)}>
@@ -101,36 +90,25 @@ const navItems = [
         </MobileButton>
       </NavContainer>
 
-     <MobileMenu $open={isOpen}>
-  {navItems.map(item =>
-    item.isScroll ? (
-      <MobileLink
-        as="button"
-        key={item.label}
-        onClick={handleScrollToCoverage}
-      >
-        {item.label}
-      </MobileLink>
-    ) : (
-      <MobileLink
-        key={item.path}
-        to={item.path}
-        onClick={() => setIsOpen(false)}
-      >
-        {item.label}
-      </MobileLink>
-    )
-  )}
+      <MobileMenu $open={isOpen}>
+        {navItems.map((item) => (
+          <MobileLink
+            key={item.path}
+            to={item.path}
+            onClick={() => setIsOpen(false)}
+          >
+            {item.label}
+          </MobileLink>
+        ))}
 
-  <CTAButton
-  href="https://pulsetelecom.conecte.ai/?cupom=site"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  Assine já!
-</CTAButton>
-</MobileMenu>
-
+        <CTAButton
+          href="https://pulsetelecom.conecte.ai/?cupom=site"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Assine já!
+        </CTAButton>
+      </MobileMenu>
     </Nav>
   );
 };

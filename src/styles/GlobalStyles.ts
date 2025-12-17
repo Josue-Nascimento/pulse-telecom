@@ -10,10 +10,13 @@ export const GlobalStyles = createGlobalStyle<{ theme: Theme }>`
     box-sizing: border-box;
   }
 
-  html {
-    scroll-behavior: smooth;
-  }
-
+html { scroll-behavior: smooth; }
+html,
+body {
+  width: 100%;
+  overflow-x: hidden;
+  touch-action: pan-y;
+}
   body {
     font-family: ${({ theme }) => theme.fonts.secondary};
     color: ${({ theme }) => theme.colors.text};
@@ -50,3 +53,4 @@ export const GlobalStyles = createGlobalStyle<{ theme: Theme }>`
     list-style: none;
   }
 `;
+

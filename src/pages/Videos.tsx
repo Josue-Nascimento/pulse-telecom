@@ -53,15 +53,21 @@ const Container = styled.div`
   height: 100vh;
   overflow: hidden;
   position: relative;
+
+  touch-action: none;
 `;
+
 
 const Slider = styled.div<{ $index: number }>`
   display: flex;
   width: 200%;
   height: 100%;
-  transform: translateX(${(props) => props.$index * -50}%);
+  transform: translateX(${props => props.$index * -50}%);
   transition: transform 0.8s ease-in-out;
+
+  will-change: transform;
 `;
+
 
 const Video = styled.video`
   width: 50%;

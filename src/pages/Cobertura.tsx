@@ -1,30 +1,47 @@
-import React from 'react';
-import styled from 'styled-components';
-import { MapPin, CheckCircle2, Phone, MessageCircle } from 'lucide-react';
-import Layout from '../components/layout/Layout';
-
-
+import React, { useState } from "react";
+import styled from "styled-components";
+import { MapPin, CheckCircle2, Phone, MessageCircle } from "lucide-react";
+import Layout from "../components/layout/Layout";
 
 const Cobertura: React.FC = () => {
+  const [selectedCity, setSelectedCity] = useState<number | null>(null);
+
   const cities = [
-    { name: 'Bananal', state: 'São Paulo', status: 'Cobertura Total' },
-    { name: 'Arapeí', state: 'São Paulo', status: 'Cobertura Total' },
-    { name: 'Vassouras', state: 'Rio de Janeiro', status: 'Cobertura Total' },
-    { name: 'São José do Barreiro', state: 'São Paulo', status: 'Cobertura Total' },
-    { name: 'Resende', state: 'Rio de Janeiro', status: 'Cobertura Parcial' },
-    { name: 'Bocaina de Minas', state: 'Minas Gerais', status: 'Cobertura Total' },
+    {
+      name: "Bananal",
+      state: "São Paulo",
+      address: "Rua Manoel de Aguiar, 181, Centro, Bananal - SP",
+    },
+    {
+      name: "Arapeí",
+      state: "São Paulo",
+      address: "Avenida Sebastião Angelo da Costa, 435 - Centro - Arapeí/SP",
+    },
+    {
+      name: "Vassouras",
+      state: "Rio de Janeiro",
+      address: "Praça Martinho Nóbrega, 10, loja 7 - Centro, Vassouras - RJ",
+    },
+    {
+      name: "São José do Barreiro",
+      state: "São Paulo",
+      address:
+        "Rua Doutor Olimpio Alves Magalhães, 07, Centro, São José do Barreiro - SP",
+    },
+    {
+      name: "Resende",
+      state: "Rio de Janeiro",
+      address: "Avenida Perimetral Norte, 1012, Nova Alegria, Resende - RJ",
+    },
+    {
+      name: "Cachoeira Paulista",
+      state: "São Paulo",
+      address: "Av. Sarah Kubitschek, 37, Cachoeira Paulista - SP, 12630-000",
+    },
   ];
 
   return (
     <Layout>
-      <PageHeader>
-        <h1>Área de Cobertura</h1>
-        <p>
-          Confira as cidades onde a Pulse Telecom está presente com internet de
-          alta velocidade.
-        </p>
-      </PageHeader>
-
       <CitiesSection>
         <Container>
           <SectionTitle>
@@ -33,16 +50,22 @@ const Cobertura: React.FC = () => {
           </SectionTitle>
           <CitiesGrid>
             {cities.map((city, index) => (
-              <CityCard key={index}>
+              <CityCard
+                key={index}
+                onClick={() =>
+                  setSelectedCity(selectedCity === index ? null : index)
+                }
+              >
                 <CityIcon>
                   <MapPin size={36} />
                 </CityIcon>
+
                 <CityName>{city.name}</CityName>
                 <CityState>{city.state}</CityState>
-                <CityStatus>
-                  <CheckCircle2 size={16} />
-                  {city.status}
-                </CityStatus>
+
+                {selectedCity === index && (
+                  <CityAddress>{city.address}</CityAddress>
+                )}
               </CityCard>
             ))}
           </CitiesGrid>
@@ -57,8 +80,8 @@ const Cobertura: React.FC = () => {
             </h2>
             <p>
               Estamos em constante expansão! Se sua cidade ainda não está na
-              lista, entre em contato conosco. Podemos avaliar a viabilidade
-              de levar nossos serviços até você.
+              lista, entre em contato conosco. Podemos avaliar a viabilidade de
+              levar nossos serviços até você.
             </p>
             <InfoList>
               <InfoItem>
@@ -109,32 +132,6 @@ const Cobertura: React.FC = () => {
     </Layout>
   );
 };
-const PageHeader = styled.section`
-  background: linear-gradient(
-    135deg,
-    ${({ theme }) => theme.colors.primary} 0%,
-    ${({ theme }) => theme.colors.secondary} 100%
-  );
-  color: ${({ theme }) => theme.colors.white};
-  padding: 6rem 2rem;
-  text-align: center;
-
-  h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-
-    @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-      font-size: 2.25rem;
-    }
-  }
-
-  p {
-    font-size: 1.25rem;
-    opacity: 0.9;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-`;
 
 const CitiesSection = styled.section`
   padding: 5rem 2rem;
@@ -167,76 +164,82 @@ const CitiesGrid = styled.div`
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.desktop}) {
+  align-items: start; /* 🔥 ESSENCIAL */
+
+  @media (max-width: 900px) {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+  @media (max-width: 600px) {
     grid-template-columns: 1fr;
   }
 `;
 
-const CityCard = styled.div`
-  background: ${({ theme }) => theme.colors.white};
-  border-radius: 1.5rem;
+
+const CityCard = styled.div<{ $active: boolean }>`
+  background: ${({ $active }) => ($active ? "#1f2fbf" : "#0b1a6e")};
+  border-radius: 1.25rem;
   padding: 2.5rem;
   text-align: center;
-  transition: all ${({ theme }) => theme.transitions.medium};
-  border: 2px solid transparent;
+  cursor: pointer;
+
+  transition: all 0.35s ease;
 
   &:hover {
-    transform: translateY(-5px);
-    border-color: ${({ theme }) => theme.colors.secondary};
-    box-shadow: ${({ theme }) => theme.shadows.large};
+    background: #1f2fbf;
+    transform: translateY(-4px);
   }
 `;
 
-const CityIcon = styled.div`
-  width: 80px;
-  height: 80px;
-  background: linear-gradient(
-    135deg,
-    ${({ theme }) => theme.colors.secondary},
-    ${({ theme }) => theme.colors.accent}
-  );
+const CityIcon = styled.div<{ $active: boolean }>`
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 1.25rem;
+
   border-radius: 50%;
+  background: ${({ $active }) => ($active ? "#00ff66" : "#ffffff")};
+
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 1.5rem;
 
   svg {
-    color: ${({ theme }) => theme.colors.white};
+    color: ${({ $active }) => ($active ? "#0b1a6e" : "#1f2fbf")};
   }
+
+  transition: all 0.3s ease;
 `;
 
 const CityName = styled.h3`
-  font-size: 1.5rem;
-  color: ${({ theme }) => theme.colors.primary};
-  margin-bottom: 0.5rem;
+  font-size: 1.4rem;
+  color: #ffffff;
+  margin-bottom: 0.25rem;
 `;
 
 const CityState = styled.p`
-  color: ${({ theme }) => theme.colors.textLight};
+  color: #c7d2fe;
   margin-bottom: 1rem;
 `;
 
 const CityStatus = styled.div`
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  background: ${({ theme }) => theme.colors.accent}20;
-  color: ${({ theme }) => theme.colors.accent};
-  padding: 0.5rem 1rem;
-  border-radius: 2rem;
-  font-weight: 500;
-  font-size: 0.875rem;
+  gap: 0.4rem;
 
-  svg {
-    color: ${({ theme }) => theme.colors.accent};
-  }
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+
+  padding: 0.45rem 1rem;
+  border-radius: 1rem;
+  font-size: 0.85rem;
 `;
 
+const CityAddress = styled.p`
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #e0e7ff;
+`;
 const InfoSection = styled.section`
   padding: 5rem 2rem;
   background: ${({ theme }) => theme.colors.white};

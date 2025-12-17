@@ -551,7 +551,6 @@ const Phone = styled.img`
 
 /* TEXTO */
 const Text = styled.div`
-background-color:black;
 width: 100%;
   color: #ffffff;
 
