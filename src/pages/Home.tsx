@@ -52,12 +52,12 @@ const Home: React.FC = () => {
   return (
     <Layout>
       <ImagePulse>
-     <Videos/>
+        <Videos />
       </ImagePulse>
       <HeroSection>
         <HeroContent>
           <HeroText>
-            <h1>A melhor experiência em Wi-Fi ao seu alcance com o Wi-Fi 6</h1>
+            <h1>A melhor experiência ao seu alcance com o Wi-Fi 6</h1>
             <p>
               Experimente uma conexão de alta velocidade com velocidades de até
               <strong> 1 GIGA</strong>. Navegue, jogue e faça downloads com
@@ -114,24 +114,16 @@ const Home: React.FC = () => {
       </Section>
       <PlansSection>
         <SectionTitle>
-          <h2>Nossas Soluções</h2>
-          <p>Escolha o plano ideal para suas necessidades.</p>
+          <h2>Explore nossas opções de conectividade empresarial</h2>
         </SectionTitle>
         <PlansGrid>
-          <PlanCard to="/residencial">
-            <PlanIcon $variant="residential">
-              <HomeIcon size={40} />
-            </PlanIcon>
-            <PlanTitle>Internet Residencial</PlanTitle>
-            <PlanDescription>
-              Planos de internet para sua casa com velocidades de até 500 Mbps.
-              Streaming, jogos e trabalho remoto sem interrupções.
-            </PlanDescription>
-            <PlanCTA>
-              Conhecer planos <ArrowRight size={18} />
-            </PlanCTA>
-          </PlanCard>
-
+          <HeroButtonSide
+            href="https://pulsetelecom.conecte.ai/?cupom=site"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Soluções corporativas <ArrowRight size={18} />
+          </HeroButtonSide>
           <PlanCard to="/corporativo">
             <PlanIcon $variant="corporate">
               <Building2 size={40} />
@@ -149,7 +141,7 @@ const Home: React.FC = () => {
       </PlansSection>
       <CoverageSection id="cobertura">
         <CoverageContent>
-          <h2>Área de Cobertura</h2>
+          <h2>Nossas Lojas</h2>
           <p>
             Estamos presentes em 6 cidades da região, levando internet de
             qualidade para você.
@@ -230,9 +222,9 @@ const PlansSection = styled.section`
 const PlansGrid = styled.div`
   max-width: 1280px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     grid-template-columns: 1fr;
@@ -256,6 +248,45 @@ const PlanCard = styled(Link)`
     box-shadow: ${({ theme }) => theme.shadows.large};
   }
 `;
+
+const HeroButtonSide = styled.a`
+  padding: 0.8rem 1.5rem;   /* altera só esse */
+  margin-right: 2rem;      /* margem só dele */
+  height: fit-content;     /* ajuda no alinhamento lateral */
+  display: inline-flex;
+  align-items: center; /* eixo vertical */
+  justify-content: center; /* eixo horizontal */
+  text-align: center;
+
+  gap: 0.5rem;
+  width: 30%;
+  height: 80px;
+
+  background: linear-gradient(90deg, #0b1a6e, #1f2fbf, #3b4cff);
+  color: #ffffff;
+  padding: 0.9rem 2.2rem;
+  border-radius: 10px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+
+  &:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+  }
+  /* ===== TABLET ===== */
+  @media (max-width: 1024px) {
+    width: 70%;
+  }
+
+  /* ===== MOBILE ===== */
+  @media (max-width: 768px) {
+    width: 100%;
+    height: 56px;
+    font-size: 0.95rem;
+  }
+`;
+
 
 const PlanIcon = styled.div<{ $variant: "residential" | "corporate" }>`
   width: 80px;
@@ -483,7 +514,7 @@ const FloatingImage = styled.div`
   }
 `;
 
- //estilos do titulo tenha uma conexao completa, telefone e chip
+//estilos do titulo tenha uma conexao completa, telefone e chip
 const Section = styled.section`
   position: relative;
   overflow: hidden;
@@ -502,7 +533,7 @@ const BackgroundPulse = styled.div`
   background-position: center;
   background-size: 180%;
 
-  opacity: 0.80;
+  opacity: 0.8;
   z-index: 1;
 `;
 
@@ -540,18 +571,18 @@ const Chip = styled.img`
   @media (max-width: 900px) {
     position: static;
     margin-bottom: 1.5rem;
-
   }
 `;
 
 const Phone = styled.img`
-  width: 470px;position: relative;
+  width: 470px;
+  position: relative;
   top: 80px;
 `;
 
 /* TEXTO */
 const Text = styled.div`
-width: 100%;
+  width: 100%;
   color: #ffffff;
 
   h2 {

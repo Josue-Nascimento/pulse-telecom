@@ -71,43 +71,6 @@ const Cobertura: React.FC = () => {
           </CitiesGrid>
         </Container>
       </CitiesSection>
-
-      <InfoSection>
-        <InfoContent>
-          <InfoText>
-            <h2>
-              Não encontrou sua <span>cidade</span>?
-            </h2>
-            <p>
-              Estamos em constante expansão! Se sua cidade ainda não está na
-              lista, entre em contato conosco. Podemos avaliar a viabilidade de
-              levar nossos serviços até você.
-            </p>
-            <InfoList>
-              <InfoItem>
-                <CheckCircle2 size={20} />
-                Análise de viabilidade técnica gratuita
-              </InfoItem>
-              <InfoItem>
-                <CheckCircle2 size={20} />
-                Planejamento de expansão contínuo
-              </InfoItem>
-              <InfoItem>
-                <CheckCircle2 size={20} />
-                Lista de espera para novas regiões
-              </InfoItem>
-              <InfoItem>
-                <CheckCircle2 size={20} />
-                Atendimento personalizado
-              </InfoItem>
-            </InfoList>
-          </InfoText>
-          <InfoImage>
-            <MapPin size={250} strokeWidth={1} />
-          </InfoImage>
-        </InfoContent>
-      </InfoSection>
-
       <CTASection>
         <h2>Quer saber se atendemos sua região?</h2>
         <p>
@@ -163,7 +126,6 @@ const CitiesGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-
   align-items: start; /* 🔥 ESSENCIAL */
 
   @media (max-width: 900px) {
@@ -177,19 +139,53 @@ const CitiesGrid = styled.div`
 
 
 const CityCard = styled.div<{ $active: boolean }>`
+  position: relative;
   background: ${({ $active }) => ($active ? "#1f2fbf" : "#0b1a6e")};
   border-radius: 1.25rem;
   padding: 2.5rem;
   text-align: center;
   cursor: pointer;
-
-  transition: all 0.35s ease;
-
+  transition: background 0.3s ease, transform 0.3s ease;
+  overflow: visible; /* IMPORTANTE */
+  min-height: 275px;
   &:hover {
     background: #1f2fbf;
     transform: translateY(-4px);
   }
 `;
+
+
+const CityAddress = styled.div`
+  position: absolute;
+  left: 1.5rem;
+  right: 1.5rem;
+  top: 12rem;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  padding: 1rem;
+  border-radius: 0.75rem;
+
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: #ffffff;
+
+  animation: fadeUp 0.3s ease;
+  z-index: 5;
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+`;
+
+
+
 
 const CityIcon = styled.div<{ $active: boolean }>`
   width: 70px;
@@ -221,99 +217,23 @@ const CityState = styled.p`
   margin-bottom: 1rem;
 `;
 
-const CityAddress = styled.p`
-  margin-top: 0.5rem;
-  font-size: 0.95rem;
-  line-height: 1.5;
-  color: #e0e7ff;
-`;
-const InfoSection = styled.section`
-  padding: 5rem 2rem;
-  background: ${({ theme }) => theme.colors.white};
-`;
 
-const InfoContent = styled.div`
-  max-width: 1280px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-`;
-
-const InfoText = styled.div`
-  h2 {
-    font-size: 2.5rem;
-    color: ${({ theme }) => theme.colors.primary};
-    margin-bottom: 1.5rem;
-
-    span {
-      color: ${({ theme }) => theme.colors.secondary};
-    }
-  }
-
-  p {
-    color: ${({ theme }) => theme.colors.textLight};
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
-    font-size: 1.1rem;
-  }
-`;
-
-const InfoList = styled.ul`
-  margin-bottom: 2rem;
-`;
-
-const InfoItem = styled.li`
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  color: ${({ theme }) => theme.colors.text};
-  padding: 0.75rem 0;
-
-  svg {
-    color: ${({ theme }) => theme.colors.secondary};
-  }
-`;
-
-const InfoImage = styled.div`
-  background: linear-gradient(
-    135deg,
-    ${({ theme }) => theme.colors.gray[100]},
-    ${({ theme }) => theme.colors.gray[200]}
-  );
-  border-radius: 1.5rem;
-  padding: 3rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  svg {
-    width: 250px;
-    height: 250px;
-    color: ${({ theme }) => theme.colors.secondary};
-    opacity: 0.7;
-  }
-`;
 
 const CTASection = styled.section`
   padding: 5rem 2rem;
-  background: #0b1a6e;
-  color: #ffffff;
+background: ${({ theme }) => theme.colors.gray[100]};
   text-align: center;
 
   h2 {
     font-size: 2.4rem;
     margin-bottom: 1rem;
     font-weight: 700;
+    color: ${({ theme }) => theme.colors.primary};
   }
 
   p {
+    color: ${({ theme }) => theme.colors.primary};
     font-size: 1.15rem;
     opacity: 0.9;
     margin-bottom: 2.5rem;
@@ -361,14 +281,14 @@ const SecondaryButton = styled.a`
   gap: 0.75rem;
 
   background: transparent;
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.primary};
 
   padding: 0.9rem 2.2rem;
   border-radius: 2rem;
   font-weight: 500;
   font-size: 1rem;
 
-  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  border: 1.5px solid rgba(17, 13, 241, 0.5);
 
   transition: background 0.25s ease, color 0.25s ease;
 
