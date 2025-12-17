@@ -221,19 +221,6 @@ const CityState = styled.p`
   margin-bottom: 1rem;
 `;
 
-const CityStatus = styled.div`
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-
-  background: rgba(255, 255, 255, 0.15);
-  color: #ffffff;
-
-  padding: 0.45rem 1rem;
-  border-radius: 1rem;
-  font-size: 0.85rem;
-`;
-
 const CityAddress = styled.p`
   margin-top: 0.5rem;
   font-size: 0.95rem;
@@ -316,69 +303,79 @@ const InfoImage = styled.div`
 
 const CTASection = styled.section`
   padding: 5rem 2rem;
-  background: linear-gradient(
-    135deg,
-    ${({ theme }) => theme.colors.primary},
-    ${({ theme }) => theme.colors.primaryLight}
-  );
-  color: ${({ theme }) => theme.colors.white};
+  background: #0b1a6e;
+  color: #ffffff;
   text-align: center;
 
   h2 {
-    font-size: 2.5rem;
+    font-size: 2.4rem;
     margin-bottom: 1rem;
+    font-weight: 700;
   }
 
   p {
-    font-size: 1.25rem;
+    font-size: 1.15rem;
     opacity: 0.9;
-    margin-bottom: 2rem;
-    max-width: 600px;
+    margin-bottom: 2.5rem;
+    max-width: 620px;
     margin-left: auto;
     margin-right: auto;
   }
 `;
 
+
+
 const CTAButtons = styled.div`
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: 1.2rem;
   flex-wrap: wrap;
 `;
+
 
 const PrimaryButton = styled.a`
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
-  background: #25d366;
-  color: ${({ theme }) => theme.colors.white};
-  padding: 1rem 2rem;
+
+  background: #00ff66; /* verde Pulse */
+  color: #0b1a6e;      /* azul escuro para contraste */
+
+  padding: 0.9rem 2.2rem;
   border-radius: 2rem;
   font-weight: 600;
-  transition: all ${({ theme }) => theme.transitions.fast};
+  font-size: 1rem;
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 
   &:hover {
-    transform: translateY(-3px);
-    box-shadow: ${({ theme }) => theme.shadows.large};
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(0, 255, 102, 0.35);
   }
 `;
+
 
 const SecondaryButton = styled.a`
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
+
   background: transparent;
   color: ${({ theme }) => theme.colors.white};
-  padding: 1rem 2rem;
+
+  padding: 0.9rem 2.2rem;
   border-radius: 2rem;
-  font-weight: 600;
-  border: 2px solid ${({ theme }) => theme.colors.white};
-  transition: all ${({ theme }) => theme.transitions.fast};
+  font-weight: 500;
+  font-size: 1rem;
+
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+
+  transition: background 0.25s ease, color 0.25s ease;
 
   &:hover {
-    background: ${({ theme }) => theme.colors.white};
-    color: ${({ theme }) => theme.colors.primary};
+    background: rgba(255, 255, 255, 0.1);
   }
 `;
+
 
 export default Cobertura;
