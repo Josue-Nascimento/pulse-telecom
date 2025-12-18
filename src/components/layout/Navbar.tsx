@@ -42,6 +42,11 @@ const Navbar: React.FC = () => {
     }
   };
 
+  const handleScrollToCorporativo = () => {
+    setIsOpen(false);
+    navigate("/#solucoes-corporativas");
+  };
+
   return (
     <Nav>
       <NavContainer>
@@ -50,34 +55,56 @@ const Navbar: React.FC = () => {
         </Logo>
 
         <DesktopNav>
-          {navItems.map((item) => (
-            <NavItem
-              key={item.path}
-              to={item.path}
-              $active={location.pathname === item.path}
-            >
-              {item.label}
-            </NavItem>
-          ))}
+          <NavItem to="/sobre" $active={location.pathname === "/sobre"}>
+            Sobre nós
+          </NavItem>
+
+          <NavItem
+            to="/residencial"
+            $active={location.pathname === "/residencial"}
+          >
+            Soluções residenciais
+          </NavItem>
+
+          {/* 👇 AQUI É O IMPORTANTE */}
+          <NavItemButton onClick={handleScrollToCorporativo}>
+            Soluções corporativas
+          </NavItemButton>
+
+          <NavItem to="/cobertura" $active={location.pathname === "/cobertura"}>
+            Cobertura
+          </NavItem>
         </DesktopNav>
 
         <RightGroup>
           <TopActions>
-            <ClientArea href="#">
+            <ClientArea href=" https://erp.brasil-ip.net/central_assinante_web/login">
               <User size={14} /> Área do cliente
             </ClientArea>
-            <SocialIcon>
+            <SocialIcon
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://api.whatsapp.com/send?phone=551231165043"
+            >
               <MessageCircle size={16} />
             </SocialIcon>
-            <SocialIcon>
+            <SocialIcon
+              target="_blank"
+              rel="noopener noreferrer"
+              href=" https://www.facebook.com/pulsetelecom.sp"
+            >
               <Facebook size={16} />
             </SocialIcon>
-            <SocialIcon>
+            <SocialIcon
+              target="_blank"
+              rel="noopener noreferrer"
+              href=" https://www.instagram.com/pulse_telecom_/"
+            >
               <Instagram size={16} />
             </SocialIcon>
           </TopActions>
           <CTAButton
-            href="https://pulsetelecom.conecte.ai/?cupom=site"
+            href=" https://pulsetelecom.conecte.ai/?cupom=site-novo-2026"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -100,14 +127,6 @@ const Navbar: React.FC = () => {
             {item.label}
           </MobileLink>
         ))}
-
-        <CTAButton
-          href="https://pulsetelecom.conecte.ai/?cupom=site"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Assine já!
-        </CTAButton>
       </MobileMenu>
     </Nav>
   );
@@ -118,6 +137,19 @@ export default Navbar;
 /* =====================
    ESTILOS
 ===================== */
+const NavItemButton = styled.button`
+  background: none;
+  border: none;
+  cursor: pointer;
+
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
+
+  &:hover {
+    color: #00ff66;
+  }
+`;
 
 const Nav = styled.nav`
   background: linear-gradient(90deg, #0b1a6e, #1f2fbf, #3b4cff);

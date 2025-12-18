@@ -34,7 +34,7 @@ const Footer: React.FC = () => {
         {/* CENTRO */}
         <Center>
           <Social>
-            <img src="/Logo Pulse-Photoroom.png" alt="Logo Pulse" />
+            <img src="/Logo Pulse.png" alt="Logo Pulse" />
             <Icons>
               <a href="#">
                 <MessageCircle size={22} />

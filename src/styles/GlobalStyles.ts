@@ -9,6 +9,9 @@ export const GlobalStyles = createGlobalStyle<{ theme: Theme }>`
     padding: 0;
     box-sizing: border-box;
   }
+html {
+  scroll-behavior: smooth;
+}
 
 html { scroll-behavior: smooth; }
 html,

@@ -67,7 +67,10 @@ justify-content: center;
 }
 
 `;
-const PlansSection = styled.section`
+const PlansSection = styled.section.attrs({
+  id: "solucoes-corporativas",
+})`
+  scroll-margin-top: 130px; /* altura navbar + respiro */
   padding: 5rem 2rem;
   background: ${({ theme }) => theme.colors.gray[100]};
 `;

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Videos from "./homePages/Videos";
 import Covarage from "./homePages/Covarage";
 import SolucoesCorporativas from "./homePages/Corporativas";
+import ChamarWhatsApp from "./homePages/WhatsApp";
 import {
   Wifi,
   Zap,
@@ -18,8 +19,22 @@ import Layout from "../components/layout/Layout";
 import bgPulse from "/Elemento Gráfico Pulse.png";
 import chipPulse from "/Elemento Gráfico Chip Pulse.png";
 import telefonePulse from "/Elemento Gráfico Telefone Fixo.png";
-
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
 const Home: React.FC = () => {
+   const location = useLocation();
+
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.replace("#", "");
+      const element = document.getElementById(id);
+
+      element?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  }, [location]);
   return (
     <Layout>
       <ImagePulse>
@@ -85,6 +100,7 @@ const Home: React.FC = () => {
       </Section>
 
       <SolucoesCorporativas />
+      <ChamarWhatsApp />
       <Covarage />
     </Layout>
   );
@@ -255,11 +271,13 @@ const BackgroundPulse = styled.div`
 const Content = styled.div`
   position: relative;
   z-index: 2;
+
   max-width: 1300px;
   margin: 0 auto;
+  width: 100%;
 
   display: grid;
-  grid-template-columns: 1fr 1.1fr;
+  grid-template-columns: 1.1fr 1fr;
   align-items: center;
   gap: 4rem;
 
@@ -268,6 +286,7 @@ const Content = styled.div`
     text-align: center;
   }
 `;
+
 
 /* IMAGENS */
 const Images = styled.div`
@@ -340,4 +359,5 @@ const ActionButton = styled.a`
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
   }
 `;
+
 //============================================================
