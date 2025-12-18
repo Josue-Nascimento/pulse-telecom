@@ -16,6 +16,8 @@ body {
   width: 100%;
   overflow-x: hidden;
   touch-action: pan-y;
+   font-family: 'Poppins', sans-serif;
+   font-weight:800;
 }
   body {
     font-family: ${({ theme }) => theme.fonts.secondary};

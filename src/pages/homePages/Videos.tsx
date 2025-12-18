@@ -59,7 +59,7 @@ const Overlay = styled.div`
 const Text = styled.h1`
   color: #ffffff;
   font-size: 3.2rem;
-  font-weight: 300;
+  font-weight: bold;
   line-height: 1.2;
   max-width: 520px;
 
@@ -75,7 +75,7 @@ span {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 
-  font-weight: 500;
+  font-weight: bold;
 }
 
 

@@ -9,11 +9,12 @@ import Corporativo from './pages/Corporativo';
 import Cobertura from './pages/Cobertura';
 import NotFound from './pages/NotFound';
 import Navbar from './components/layout/Navbar';
-
+import Scroll from './pages/ScrollToTop';
 const App = () => (
   <ThemeProvider theme={theme}>
     <GlobalStyles />
     <BrowserRouter>
+    <Scroll/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/sobre" element={<SobreNos />} />
