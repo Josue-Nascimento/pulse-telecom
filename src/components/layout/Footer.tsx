@@ -26,7 +26,7 @@ const Footer: React.FC = () => {
             tecnologia de ponta a um atendimento ético, transparente e
             profissional.
           </p>
-          <br/>
+          <br />
           <h3>Contrato de prestação de serviços</h3>
           <p className="cnpj">PULSE GESTÃO DE DADOS LTDA 07.054.431/0001-80</p>
         </Left>
@@ -36,13 +36,25 @@ const Footer: React.FC = () => {
           <Social>
             <img src="/Logo Pulse.png" alt="Logo Pulse" />
             <Icons>
-              <a href="#">
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://api.whatsapp.com/send?phone=551231165043"
+              >
                 <MessageCircle size={22} />
               </a>
-              <a href="#">
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href=" https://www.instagram.com/pulse_telecom_/"
+              >
                 <Instagram size={22} />
               </a>
-              <a href="#">
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href=" https://www.facebook.com/pulsetelecom.sp"
+              >
                 <Facebook size={22} />
               </a>
             </Icons>
@@ -92,7 +104,6 @@ const Content = styled.div`
   }
 `;
 
-
 /* ESQUERDA */
 const Left = styled.div`
   h2 {
@@ -107,9 +118,9 @@ const Left = styled.div`
     color: #e5e7eb;
     font-weight: 700;
   }
-  p.cnpj{
+  p.cnpj {
     margin-top: 5px;
-    font-size:10px;
+    font-size: 10px;
   }
   @media (max-width: 900px) {
     p {

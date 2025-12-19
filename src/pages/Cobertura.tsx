@@ -78,14 +78,14 @@ const Cobertura: React.FC = () => {
           qualidade até você!
         </p>
         <CTAButtons>
-          <PrimaryButton
-            href="https://wa.me/5524999999999?text=Olá! Gostaria de saber se vocês atendem minha região."
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <MessageCircle size={20} />
-            WhatsApp
-          </PrimaryButton>
+         <PrimaryButton
+  href="https://api.whatsapp.com/send?phone=551231165043&text=Olá%21%20Gostaria%20de%20saber%20se%20voc%C3%AAs%20atendem%20minha%20regi%C3%A3o."
+  target="_blank"
+  rel="noopener noreferrer"
+>
+WhatsApp
+</PrimaryButton>
+
           <SecondaryButton href="tel:+552499999999">
             <Phone size={20} />
             Ligar Agora

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   Menu,
   X,
@@ -9,36 +9,30 @@ import {
   Facebook,
   Instagram,
 } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+
   const location = useLocation();
+  const navigate = useNavigate(); // 👈 PRIMEIRO OS HOOKS
 
-  const navItems = [
-    { path: "/sobre", label: "Sobre nós" },
-    { path: "/residencial", label: "Soluções residenciais" },
-    { path: "/corporativo", label: "Soluções corporativas" },
-    { path: "/cobertura", label: "Cobertura" }, // 👈 AGORA É ROTA
-  ];
+  /* =====================
+     FUNÇÕES
+  ===================== */
 
-  const navigate = useNavigate();
-
-  const handleScrollToCoverage = () => {
-    setIsOpen(false); // FECHA O MENU
+  const handleScrollToResidencial = () => {
+    setIsOpen(false);
 
     const scroll = () => {
-      const section = document.getElementById("cobertura");
-      section?.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+      const section = document.getElementById("residencial");
+      section?.scrollIntoView({ behavior: "smooth", block: "start" });
     };
 
     if (location.pathname === "/") {
-      setTimeout(scroll, 300); // espera menu fechar
+      setTimeout(scroll, 300);
     } else {
       navigate("/");
-      setTimeout(scroll, 500); // espera navegação + menu
+      setTimeout(scroll, 600);
     }
   };
 
@@ -47,6 +41,32 @@ const Navbar: React.FC = () => {
     navigate("/#solucoes-corporativas");
   };
 
+  const handleScrollToCoverage = () => {
+    setIsOpen(false);
+
+    const scroll = () => {
+      const section = document.getElementById("cobertura");
+      section?.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+
+    if (location.pathname === "/") {
+      setTimeout(scroll, 300);
+    } else {
+      navigate("/");
+      setTimeout(scroll, 500);
+    }
+  };
+
+  /* =====================
+     ITENS DO MENU MOBILE
+  ===================== */
+
+  const navItems = [
+    { label: "Sobre nós", action: () => navigate("/sobre") },
+    { label: "Soluções residenciais", action: handleScrollToResidencial },
+    { label: "Soluções corporativas", action: handleScrollToCorporativo },
+    { label: "Cobertura", action: handleScrollToCoverage },
+  ];
   return (
     <Nav>
       <NavContainer>
@@ -59,12 +79,9 @@ const Navbar: React.FC = () => {
             Sobre nós
           </NavItem>
 
-          <NavItem
-            to="/residencial"
-            $active={location.pathname === "/residencial"}
-          >
+          <NavItemButton onClick={handleScrollToResidencial}>
             Soluções residenciais
-          </NavItem>
+          </NavItemButton>
 
           {/* 👇 AQUI É O IMPORTANTE */}
           <NavItemButton onClick={handleScrollToCorporativo}>
@@ -78,7 +95,11 @@ const Navbar: React.FC = () => {
 
         <RightGroup>
           <TopActions>
-            <ClientArea href=" https://erp.brasil-ip.net/central_assinante_web/login">
+            <ClientArea
+              target="_blank"
+              rel="noopener noreferrer"
+              href=" https://erp.brasil-ip.net/central_assinante_web/login"
+            >
               <User size={14} /> Área do cliente
             </ClientArea>
             <SocialIcon
@@ -119,20 +140,35 @@ const Navbar: React.FC = () => {
 
       <MobileMenu $open={isOpen}>
         {navItems.map((item) => (
-          <MobileLink
-            key={item.path}
-            to={item.path}
-            onClick={() => setIsOpen(false)}
-          >
-            {item.label}
-          </MobileLink>
-        ))}
+  <MobileButtonLink
+    key={item.label}
+    onClick={() => {
+      setIsOpen(false);
+      item.action();
+    }}
+  >
+    {item.label}
+  </MobileButtonLink>
+))}
+
+       
       </MobileMenu>
     </Nav>
   );
 };
 
 export default Navbar;
+const MobileButtonLink = styled.button`
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+
+  &:hover {
+    color: #00ff66;
+  }
+`;
 
 /* =====================
    ESTILOS

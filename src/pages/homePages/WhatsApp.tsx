@@ -1,52 +1,49 @@
 import styled from "styled-components";
 
-export default function ChamarWhatsApp(){
-    return(
-        <>
-             <HighlightWrapper>
-      <HighlightGrid>
-        <HighlightTitle>
-          <h1>
-            Descubra o poder <br />
-            de uma conexão perfeita <br />
-            <span>e transforme o seu jeito</span> <br />
-            <span>de aproveitar a internet.</span>
-          </h1>
-        </HighlightTitle>
+export default function ChamarWhatsApp() {
+  return (
+    <>
+      <HighlightWrapper>
+        <HighlightGrid>
+          <HighlightTitle>
+            <h1>
+              Descubra o poder <br />
+              de uma conexão perfeita <br />
+              <span>e transforme o seu jeito</span> <br />
+              <span>de aproveitar a internet.</span>
+            </h1>
+          </HighlightTitle>
 
-        <HighlightDescription>
-          <p>
-            Escolha a <strong>Pulse</strong> e tenha uma experiência
-            incomparável de internet e entretenimento. Junte-se a milhares de
-            clientes satisfeitos que confiam em nossa infraestrutura de última
-            geração.
-          </p>
-        </HighlightDescription>
-      </HighlightGrid>
+          <HighlightDescription>
+            <p>
+              Escolha a <strong>Pulse</strong> e tenha uma experiência
+              incomparável de internet e entretenimento. Junte-se a milhares de
+              clientes satisfeitos que confiam em nossa infraestrutura de última
+              geração.
+            </p>
+          </HighlightDescription>
+        </HighlightGrid>
 
-      <HighlightAction>
-        <HighlightButton
-          href="https://api.whatsapp.com/send?phone=551231165043"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Chamar no WhatsApp agora
-        </HighlightButton>
-      </HighlightAction>
-    </HighlightWrapper>
-        </>
-    )
+        <HighlightAction>
+          <HighlightButton
+            href="https://api.whatsapp.com/send?phone=551231165043"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Chamar no WhatsApp agora
+          </HighlightButton>
+        </HighlightAction>
+      </HighlightWrapper>
+    </>
+  );
 }
 
-
 const HighlightWrapper = styled.section`
-width: 98%;
+  width: 95%;
   padding: 4.5rem 2rem;
   border-radius: 32px;
-  margin-left:15px;
   background: linear-gradient(135deg, #0b1a6e, #2d2df5);
   color: #ffffff;
-
 `;
 
 const HighlightGrid = styled.div`
@@ -54,7 +51,7 @@ const HighlightGrid = styled.div`
   margin: 0 auto;
 
   display: grid;
-  grid-template-columns: 1.2fr 1fr;
+  grid-template-columns: 1.0fr 1fr;
   gap: 3rem;
   align-items: center;
 
@@ -69,9 +66,9 @@ const HighlightTitle = styled.div`
     font-size: 2.8rem;
     line-height: 1.2;
     font-weight: 700;
-
+    text-align: right;
     span {
-      color: #00ff66;
+      color: #02f711;
     }
 
     @media (max-width: 900px) {
@@ -85,9 +82,9 @@ const HighlightDescription = styled.div`
     font-size: 1.5rem;
     line-height: 1.2;
     opacity: 0.95;
-font-weight: 500;
+    font-weight: 500;
     strong {
-      color: #00ff66;
+      color: #19ff28;
     }
   }
 `;
@@ -104,12 +101,12 @@ const HighlightButton = styled.a`
   padding: 0.5rem 2.4rem;
   border-radius: 10px;
   font-weight: bolder;
-  font-size: 17px;
+  font-size: 15px;
   text-decoration: none;
   transition: all 0.25s ease;
   width: 20%;
   height: 50px;
-   display: flex;
+  display: flex;
   justify-content: center;
   align-items: center;
   &:hover {

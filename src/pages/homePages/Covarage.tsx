@@ -1,12 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import {
-  Zap,
-  Shield,
-  Users,
-  MapPin,
-  ArrowRight,
-} from "lucide-react";
+import { Zap, Shield, Users, MapPin, ArrowRight } from "lucide-react";
 export default function CovarageSection() {
   const features = [
     {
@@ -49,43 +43,22 @@ export default function CovarageSection() {
           </p>
           <CitiesGrid>
             {cities.map((city) => (
-              <CityTag key={city}>
+              <CityTag to="/cobertura" key={city}>
                 <MapPin size={18} />
                 {city}
               </CityTag>
             ))}
           </CitiesGrid>
-          <PrimaryButton to="/cobertura">
-            Ver cobertura completa <ArrowRight size={18} />
-          </PrimaryButton>
         </CoverageContent>
       </CoverageSection>
     </>
   );
 }
-const PrimaryButton = styled(Link)`
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: linear-gradient(90deg, #0b1a6e, #1f2fbf, #3b4cff);
-  color: ${({ theme }) => theme.colors.primary};
-  padding: 1rem 2rem;
-  border-radius: 2rem;
-  font-weight: 600;
-  font-size: 1rem;
-  transition: all ${({ theme }) => theme.transitions.fast};
-color: white;
-  &:hover {
-    transform: translateY(-3px);
-    box-shadow: ${({ theme }) => theme.shadows.large};
-  }
-`;
+
 
 const CoverageSection = styled.section`
   padding: 5rem 2rem;
- background: ${({ theme }) => theme.colors.white};
   color: linear-gradient(90deg, #0b1a6e, #1f2fbf, #3b4cff);
-
 `;
 
 const CoverageContent = styled.div`
@@ -116,7 +89,7 @@ const CitiesGrid = styled.div`
   margin-bottom: 2rem;
 `;
 
-const CityTag = styled.span`
+const CityTag = styled(Link)`
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -125,7 +98,12 @@ const CityTag = styled.span`
   border-radius: 2rem;
   font-weight: 500;
   backdrop-filter: blur(10px);
-color: white;
+  transition: all ${({ theme }) => theme.transitions.fast};
+  color: white;
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: ${({ theme }) => theme.shadows.large};
+  }
   svg {
     color: linear-gradient(90deg, #0b1a6e, #1f2fbf, #3b4cff);
   }
