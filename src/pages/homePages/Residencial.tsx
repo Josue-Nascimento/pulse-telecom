@@ -1,8 +1,6 @@
 import styled from "styled-components";
 import { ArrowRight } from "lucide-react";
 export default function Residencial() {
-  
-
   return (
     <>
       <HeroSection id="residencial">
@@ -10,9 +8,12 @@ export default function Residencial() {
           <HeroText>
             <h1>A melhor experiência ao seu alcance com o Wi-Fi 6</h1>
             <p>
-              Experimente uma conexão de alta velocidade com velocidades de até
-              <strong> 1 GIGA</strong>. Navegue, jogue e faça downloads com
-              estabilidade e desempenho incomparáveis.
+              Experimente uma conexão de alta velocidade com velocidades de até{" "}
+              <strong> 1 GIGA</strong> com inteligência artificial. Navegue,
+              transmita e faça downloads com uma velocidade incomparável,
+              permitindo que você realize todas as suas atividades online de
+              forma rápida e eficiente. Esteja um passo à frente com a melhor
+              internet do mercado.
             </p>
 
             <HeroButton
@@ -26,11 +27,11 @@ export default function Residencial() {
 
           <HeroImages>
             <MainImage>
-              <img src="imagemBase.png" alt="Cliente usando internet" />
+              <video src="/Home Office.mp4" autoPlay muted loop playsInline />
             </MainImage>
 
             <FloatingImage>
-              <img src="jogando.jpg" alt="Jogos online" />
+              <video src=" /Videogame.mp4" autoPlay muted loop playsInline />
             </FloatingImage>
           </HeroImages>
         </HeroContent>
@@ -131,16 +132,26 @@ const HeroButton = styled.a`
 
 const HeroImages = styled.div`
   position: relative;
-  display: flex;
-  justify-content: center;
+  width: 420px;
+  height: 420px;
+
+  @media (max-width: 768px) {
+    width: 320px;
+    height: 320px;
+    margin: 0 auto;
+  }
 `;
 
 const MainImage = styled.div`
-  img {
-    width: 360px;
-    height: 360px;
+  position: relative;
+  z-index: 3;
+  left: 180px;
+  video {
+    width: 300px;
+    height: 300px;
     border-radius: 50%;
     object-fit: cover;
+    margin-left: 40px;
 
     @media (max-width: 768px) {
       width: 280px;
@@ -151,18 +162,22 @@ const MainImage = styled.div`
 
 const FloatingImage = styled.div`
   position: absolute;
-  bottom: -40px;
-  right: -20px;
+  bottom: -50px;
+  left: 50px;
+  z-index: 2;
 
-  img {
-    width: 260px;
+  video {
+    width: 250px;
+    height: 230px;
+    object-fit: cover;
     border-radius: 1rem;
-    box-shadow: ${({ theme }) => theme.shadows.large};
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
 
     @media (max-width: 768px) {
-      width: 200px;
+      width: 190px;
+      height: 130px;
       bottom: -20px;
-      right: 0;
+      right: -10px;
     }
   }
 `;

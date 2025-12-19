@@ -18,11 +18,14 @@ export default function SolucoesCorporativas() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Soluções corporativas <ArrowRight size={18} />
+            Soluções corporativas
+            <span className="arrow">
+              <ArrowRight size={18} />
+            </span>
           </HeroButtonSide>
           <VideoWrapper>
             <video
-              src="Home Office.mp4"
+              src="Soluções Corporativas.mp4"
               autoPlay
               muted
               loop
@@ -43,29 +46,30 @@ const SectionTitle = styled.div`
   margin-bottom: 3rem;
 
   h2 {
-    font-size: 2.5rem;
+    font-size: 2.9rem;
     color: ${({ theme }) => theme.colors.primary};
     margin-bottom: 1rem;
 
     @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-      font-size: 2rem;
+      font-size: 1.8rem;
+
+    }
+    
+  }
+
+  p {
+    display: inline-block;
+    font-weight: 500;
+    font-size: 12px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    white-space: nowrap;
+
+    @media (max-width: 1024px) {
+      white-space: normal; /* 🔥 deixa quebrar */
     }
   }
-
-p {
-  display: inline-block;
-  font-weight: 500;
-  font-size: 1.125rem;
-  text-align: center;
-display: flex;
-justify-content: center;
-  white-space: nowrap;
-
-  @media (max-width: 1024px) {
-    white-space: normal; /* 🔥 deixa quebrar */
-  }
-}
-
 `;
 const PlansSection = styled.section.attrs({
   id: "solucoes-corporativas",
@@ -81,28 +85,30 @@ const PlansGrid = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
+  gap: 3rem;
 
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    grid-template-columns: 1fr;
+  /* MOBILE */
+  @media (max-width: 1024px) {
+    flex-direction: column;
+    text-align: center;
   }
 `;
 
+
 const HeroButtonSide = styled.a`
-  height: fit-content; /* ajuda no alinhamento lateral */
   display: inline-flex;
-  align-items: center; /* eixo vertical */
-  justify-content: center; /* eixo horizontal */
-  text-align: center;
-font-size:20px;
-  gap: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+
   width: 30%;
   height: 80px;
 
   background: linear-gradient(90deg, #0b1a6e, #1f2fbf, #3b4cff);
   color: #ffffff;
-  padding: 0.9rem 2.2rem;
-  border-radius: 10px;
+  font-size: 20px;
   font-weight: 600;
+  border-radius: 10px;
   text-decoration: none;
   transition: all 0.3s ease;
 
@@ -110,18 +116,25 @@ font-size:20px;
     filter: brightness(1.1);
     transform: translateY(-2px);
   }
-  /* ===== TABLET ===== */
+
+  /* TABLET */
   @media (max-width: 1024px) {
     width: 70%;
+    order: 2; /* 🔥 botão fica abaixo do vídeo */
   }
 
-  /* ===== MOBILE ===== */
+  /* MOBILE */
   @media (max-width: 768px) {
     width: 100%;
     height: 56px;
-    font-size: 0.95rem;
+    font-size: 1rem;
+
+    .arrow {
+      display: none;
+    }
   }
 `;
+
 
 const VideoWrapper = styled.div`
   width: 100%;
@@ -130,9 +143,15 @@ const VideoWrapper = styled.div`
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 
+  /* MOBILE → vídeo em cima */
+  @media (max-width: 1024px) {
+    order: 1;
+  }
+
   video {
     width: 100%;
     height: auto;
     display: block;
   }
 `;
+
