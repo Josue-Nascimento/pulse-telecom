@@ -133,25 +133,23 @@ const Navbar: React.FC = () => {
           </CTAButton>
         </RightGroup>
 
-        <MobileButton onClick={() => setIsOpen(!isOpen)}>
+        <MobileButton onClick={() => setIsOpen(!isOpen)} $open={isOpen}>
           {isOpen ? <X size={28} /> : <Menu size={28} />}
         </MobileButton>
       </NavContainer>
 
       <MobileMenu $open={isOpen}>
         {navItems.map((item) => (
-  <MobileButtonLink
-    key={item.label}
-    onClick={() => {
-      setIsOpen(false);
-      item.action();
-    }}
-  >
-    {item.label}
-  </MobileButtonLink>
-))}
-
-       
+          <MobileButtonLink
+            key={item.label}
+            onClick={() => {
+              setIsOpen(false);
+              item.action();
+            }}
+          >
+            {item.label}
+          </MobileButtonLink>
+        ))}
       </MobileMenu>
     </Nav>
   );
@@ -304,11 +302,16 @@ const CTAButton = styled.a`
 `;
 
 /* ===== MOBILE ===== */
-const MobileButton = styled.button`
+const MobileButton = styled.button<{ $open?: boolean }>`
   display: none;
   background: none;
   border: none;
   color: #fff;
+  cursor: pointer;
+
+  transition: transform 0.4s ease;
+
+  transform: rotate(${({ $open }) => ($open ? "90deg" : "0deg")});
 
   @media (max-width: 1024px) {
     display: block;
@@ -320,20 +323,19 @@ const MobileMenu = styled.div<{ $open: boolean }>`
   top: 110px;
   left: 0;
   right: 0;
+
   background: linear-gradient(180deg, #0b1a6e, #1f2fbf);
-  display: ${({ $open }) => ($open ? "flex" : "none")};
+
+  display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1.2rem;
   padding: 2rem 1rem;
-`;
 
-const MobileLink = styled(Link)`
-  color: #fff;
-  font-size: 1.2rem;
-  text-decoration: none;
+  opacity: ${({ $open }) => ($open ? 1 : 0)};
+  transform: ${({ $open }) => ($open ? "translateY(0)" : "translateY(-20px)")};
 
-  &:hover {
-    color: #00ff66;
-  }
+  pointer-events: ${({ $open }) => ($open ? "auto" : "none")};
+
+  transition: all 0.4s ease;
 `;

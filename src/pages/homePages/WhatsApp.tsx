@@ -72,6 +72,10 @@ const HighlightTitle = styled.div`
 
     span {
       color: #02f711;
+      @media (max-width: 480px) {
+      font-size: 1.3rem;
+      line-height: 1.25;
+    }
     }
 
     @media (max-width: 900px) {
@@ -80,8 +84,8 @@ const HighlightTitle = styled.div`
     }
 
     @media (max-width: 480px) {
-      font-size: 1.9rem;
-      line-height: 1.25;
+      font-size: 1.3rem;
+      line-height: 1.5;
     }
   }
 `;
@@ -103,7 +107,7 @@ const HighlightDescription = styled.div`
     }
 
     @media (max-width: 480px) {
-      font-size: 1.15rem;
+      font-size: 1rem;
     }
   }
 `;

@@ -43,6 +43,7 @@ export default function Residencial() {
 const HeroSection = styled.section`
   padding: 5rem 2rem;
   background: ${({ theme }) => theme.colors.white};
+  scroll-margin-top: 120px;
 `;
 
 const HeroContent = styled.div`
