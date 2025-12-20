@@ -32,6 +32,15 @@ const Video = styled.video`
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center center; /* desktop padrão */
+
+  @media (max-width: 768px) {
+    object-position: 30% center; /* 👈 joga o foco pra esquerda */
+  }
+
+  @media (max-width: 480px) {
+    object-position: 75% center; /* 👈 ainda mais foco nas pessoas */
+  }
 `;
 
 /* Camada por cima do vídeo */

@@ -29,7 +29,7 @@ export default function CovarageSection() {
     "Vassouras",
     "São José do Barreiro",
     "Resende",
-    "Bocaina de Minas",
+    "Cachoeira Paulista"
   ];
 
   return (
@@ -37,10 +37,6 @@ export default function CovarageSection() {
       <CoverageSection id="cobertura">
         <CoverageContent>
           <h2>Nossas Lojas</h2>
-          <p>
-            Estamos presentes em 6 cidades da região, levando internet de
-            qualidade para você.
-          </p>
           <CitiesGrid>
             {cities.map((city) => (
               <CityTag to="/cobertura" key={city}>
@@ -58,7 +54,10 @@ export default function CovarageSection() {
 
 const CoverageSection = styled.section`
   padding: 5rem 2rem;
-  color: linear-gradient(90deg, #0b1a6e, #1f2fbf, #3b4cff);
+
+  @media (max-width: 768px) {
+    padding: 4rem 1.5rem;
+  }
 `;
 
 const CoverageContent = styled.div`
@@ -69,42 +68,60 @@ const CoverageContent = styled.div`
   h2 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
-  }
+    font-weight:bold ;
+    background: linear-gradient(90deg, #0b1a6e, #1f2fbf, #3b4cff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 
-  p {
-    font-size: 1.125rem;
-    opacity: 0.9;
-    margin-bottom: 3rem;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
+    @media (max-width: 768px) {
+      font-size: 2rem;
+    }
   }
 `;
+
 
 const CitiesGrid = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
-  margin-bottom: 2rem;
+
+  @media (max-width: 480px) {
+    gap: 0.75rem;
+  }
 `;
+
 
 const CityTag = styled(Link)`
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
+
   background: linear-gradient(90deg, #0b1a6e, #1f2fbf, #3b4cff);
-  padding: 0.75rem 1.5rem;
-  border-radius: 2rem;
-  font-weight: 500;
-  backdrop-filter: blur(10px);
-  transition: all ${({ theme }) => theme.transitions.fast};
-  color: white;
+  padding: 0.7rem 1.4rem;
+  border-radius: 0.5rem;
+
+  font-size: 0.95rem;
+  font-weight: bolder;
+  color: #ffffff;
+  text-decoration: none;
+ display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
   &:hover {
     transform: translateY(-3px);
-    box-shadow: ${({ theme }) => theme.shadows.large};
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
   }
+
   svg {
-    color: linear-gradient(90deg, #0b1a6e, #1f2fbf, #3b4cff);
+    color: #ffffff;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.85rem;
+    padding: 0.6rem 1.2rem;
   }
 `;

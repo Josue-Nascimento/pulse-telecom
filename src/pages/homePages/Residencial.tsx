@@ -59,41 +59,34 @@ const HeroContent = styled.div`
   }
 `;
 
+
 const HeroText = styled.div`
   h1 {
     font-size: 3rem;
     margin-bottom: 1.2rem;
-
+font-weight:bold ;
     background: linear-gradient(90deg, #0b1a6e, #1f2fbf, #3b4cff);
-
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    background-clip: text;
-
-    span {
-      background: linear-gradient(90deg, #0b1a6e, #1f2fbf, #3b4cff);
-
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
 
     @media (max-width: 768px) {
-      font-size: 2.2rem;
+      font-size: 2.1rem;
+      line-height: 1.2;
     }
   }
 
   p {
     font-size: 1.1rem;
-
     max-width: 520px;
     margin-bottom: 2rem;
 
     @media (max-width: 1024px) {
       margin: 0 auto 2rem;
+      font-size: 1rem;
     }
   }
 `;
+
 
 const HeroButton = styled.a`
   display: inline-flex;
@@ -135,17 +128,21 @@ const HeroImages = styled.div`
   width: 420px;
   height: 420px;
 
-  @media (max-width: 768px) {
-    width: 320px;
-    height: 320px;
+  @media (max-width: 1024px) {
     margin: 0 auto;
   }
+
+  @media (max-width: 768px) {
+    width: 300px;
+    height: 300px;
+  }
 `;
+
 
 const MainImage = styled.div`
   position: relative;
   z-index: 3;
-  left: 180px;
+  left: 130px;
   video {
     width: 300px;
     height: 300px;
@@ -163,21 +160,26 @@ const MainImage = styled.div`
 const FloatingImage = styled.div`
   position: absolute;
   bottom: -50px;
-  left: 50px;
+  left: 40px;
   z-index: 2;
 
   video {
     width: 250px;
-    height: 230px;
+    height: 220px;
     object-fit: cover;
     border-radius: 1rem;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+  }
 
-    @media (max-width: 768px) {
-      width: 190px;
-      height: 130px;
-      bottom: -20px;
-      right: -10px;
+  @media (max-width: 768px) {
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    video {
+      width: 180px;
+      height: 120px;
     }
   }
 `;
+

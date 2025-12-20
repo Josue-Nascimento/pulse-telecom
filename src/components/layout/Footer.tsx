@@ -113,10 +113,10 @@ const Left = styled.div`
   }
 
   p {
-    line-height: 1.7;
-    max-width: 420px;
+    line-height: 1.5;
+    max-width: 340px;
     color: #e5e7eb;
-    font-weight: 700;
+    font-weight: 500;
   }
   p.cnpj {
     margin-top: 5px;
@@ -140,30 +140,41 @@ const Center = styled.div`
 const Icons = styled.div`
   display: flex;
   justify-content: center;
-  margin-right: 90px;
-  a {
-    margin: 10px;
-  }
+  align-items: center;
+  gap: 1rem;
 `;
 
 const Social = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center; /* 👈 CENTRALIZA TUDO */
+  justify-content: center;
+  gap: 1rem;
 
   a {
     color: #ffffff;
-    transition: 0.3s;
+    transition: color 0.3s ease;
   }
 
   a:hover {
     color: #00ff66;
   }
+
   img {
     width: 400px;
-    margin-bottom: 20px;
-    margin-right: 90px;
+    max-width: 100%;
+    margin-bottom: 0.5rem;
+
+    @media (max-width: 900px) {
+      width: 280px;
+    }
+
+    @media (max-width: 480px) {
+      width: 220px;
+    }
   }
 `;
+
 
 /* DIREITA */
 const Right = styled.div`

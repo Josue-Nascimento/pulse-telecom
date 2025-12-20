@@ -51,15 +51,17 @@ const HighlightGrid = styled.div`
   margin: 0 auto;
 
   display: grid;
-  grid-template-columns: 1.0fr 1fr;
+  grid-template-columns: 1fr 1fr;
   gap: 3rem;
-  align-items: center;
+  align-items: end;
 
   @media (max-width: 900px) {
     grid-template-columns: 1fr;
+    gap: 2rem;
     text-align: center;
   }
 `;
+
 
 const HighlightTitle = styled.div`
   h1 {
@@ -67,27 +69,45 @@ const HighlightTitle = styled.div`
     line-height: 1.2;
     font-weight: 700;
     text-align: right;
+
     span {
       color: #02f711;
     }
 
     @media (max-width: 900px) {
       font-size: 2.2rem;
+      text-align: center;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 1.9rem;
+      line-height: 1.25;
     }
   }
 `;
 
+
 const HighlightDescription = styled.div`
   p {
     font-size: 1.5rem;
-    line-height: 1.2;
+    line-height: 1.4;
     opacity: 0.95;
-    font-weight: 500;
+    font-weight: 300;
+
     strong {
       color: #19ff28;
     }
+
+    @media (max-width: 900px) {
+      font-size: 1.3rem;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 1.15rem;
+    }
   }
 `;
+
 
 const HighlightAction = styled.div`
   margin-top: 3rem;
@@ -100,17 +120,33 @@ const HighlightButton = styled.a`
   color: #2241ef;
   padding: 0.5rem 2.4rem;
   border-radius: 10px;
-  font-weight: bolder;
+  font-weight: 700;
   font-size: 15px;
   text-decoration: none;
   transition: all 0.25s ease;
+
   width: 20%;
   height: 50px;
-  display: flex;
+
+  display: inline-flex;
   justify-content: center;
   align-items: center;
+
+  white-space: nowrap;      /* 🔑 NÃO QUEBRA LINHA */
+  overflow: hidden;
+  text-overflow: ellipsis;  /* segurança, se faltar espaço */
+
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+  }
+
+  @media (max-width: 900px) {
+    width: 60%;
+  }
+
+  @media (max-width: 480px) {
+    width: 100%;
+    font-size: 14px;
   }
 `;

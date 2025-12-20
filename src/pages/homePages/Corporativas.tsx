@@ -47,7 +47,10 @@ const SectionTitle = styled.div`
 
   h2 {
     font-size: 2.9rem;
-    color: ${({ theme }) => theme.colors.primary};
+    font-weight:bold ;
+    background: linear-gradient(90deg, #0b1a6e, #1f2fbf, #3b4cff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     margin-bottom: 1rem;
 
     @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
@@ -60,7 +63,7 @@ const SectionTitle = styled.div`
   p {
     display: inline-block;
     font-weight: 500;
-    font-size: 12px;
+    font-size: 18px;
     text-align: center;
     display: flex;
     justify-content: center;
