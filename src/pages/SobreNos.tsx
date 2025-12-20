@@ -59,13 +59,7 @@ const SobreNos: React.FC = () => {
 
   return (
     <Layout>
-      <PageHeader>
-        <h1>Sobre a Pulse Telecom</h1>
-        <p>
-          Conheça nossa história, missão e o compromisso que temos com você.
-        </p>
-      </PageHeader>
-
+      
       <AboutSection>
         <Container>
           <AboutContent>
