@@ -10,26 +10,39 @@ import {
   Instagram,
   Linkedin,
 } from "lucide-react";
-
-// 👉 IMPORT DA LOGO
+import { useLocation } from "react-router-dom";
 
 const Footer: React.FC = () => {
+  const location = useLocation();
+
+  const isSobreNosPage = location.pathname === "/sobre";
+
+
   return (
     <Container>
       <Content>
         {/* ESQUERDA */}
-        <Left>
-          <h2>Sobre nós</h2>
-          <p>
-            Nascemos para levar conectividade de qualidade a todos. Somos uma
-            equipe comprometida em oferecer uma experiência positiva, unindo
-            tecnologia de ponta a um atendimento ético, transparente e
-            profissional.
-          </p>
-          <br />
-          <h3>Contrato de prestação de serviços</h3>
-          <p className="cnpj">PULSE GESTÃO DE DADOS LTDA 07.054.431/0001-80</p>
-        </Left>
+  <Left>
+  {!isSobreNosPage && (
+    <>
+      <h2>Sobre nós</h2>
+      <p>
+        Nascemos para levar conectividade de qualidade a todos. Somos uma
+        equipe comprometida em oferecer uma experiência positiva, unindo
+        tecnologia de ponta a um atendimento ético, transparente e
+        profissional.
+      </p>
+      <br />
+    </>
+  )}
+
+  <h3>Contrato de prestação de serviços</h3>
+  <p className="cnpj">
+    PULSE GESTÃO DE DADOS LTDA 07.054.431/0001-80
+  </p>
+</Left>
+
+
 
         {/* CENTRO */}
         <Center>
@@ -43,17 +56,19 @@ const Footer: React.FC = () => {
               >
                 <MessageCircle size={22} />
               </a>
+
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                href=" https://www.instagram.com/pulse_telecom_/"
+                href="https://www.instagram.com/pulse_telecom_/"
               >
                 <Instagram size={22} />
               </a>
+
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                href=" https://www.facebook.com/pulsetelecom.sp"
+                href="https://www.facebook.com/pulsetelecom.sp"
               >
                 <Facebook size={22} />
               </a>

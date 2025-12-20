@@ -151,10 +151,13 @@ const MainImage = styled.div`
     margin-left: 40px;
 
     @media (max-width: 768px) {
-      width: 280px;
-      height: 280px;
+      width: 200px;
+      height: 200px;
     }
   }
+   @media (max-width: 768px) {
+         left: 28%;
+    }
 `;
 
 const FloatingImage = styled.div`
@@ -172,8 +175,8 @@ const FloatingImage = styled.div`
   }
 
   @media (max-width: 768px) {
-    bottom: -20px;
-    left: 50%;
+    left: 23%;
+    bottom: 10%;
     transform: translateX(-50%);
 
     video {

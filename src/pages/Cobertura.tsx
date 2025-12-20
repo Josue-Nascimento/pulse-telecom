@@ -78,18 +78,13 @@ const Cobertura: React.FC = () => {
           qualidade até você!
         </p>
         <CTAButtons>
-         <PrimaryButton
-  href="https://api.whatsapp.com/send?phone=551231165043&text=Olá%21%20Gostaria%20de%20saber%20se%20voc%C3%AAs%20atendem%20minha%20regi%C3%A3o."
-  target="_blank"
-  rel="noopener noreferrer"
->
-WhatsApp
-</PrimaryButton>
-
-          <SecondaryButton href="tel:+552499999999">
-            <Phone size={20} />
-            Ligar Agora
-          </SecondaryButton>
+          <PrimaryButton
+            href="https://api.whatsapp.com/send?phone=551231165043&text=Olá%21%20Gostaria%20de%20saber%20se%20voc%C3%AAs%20atendem%20minha%20regi%C3%A3o."
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            WhatsApp
+          </PrimaryButton>
         </CTAButtons>
       </CTASection>
     </Layout>
@@ -137,7 +132,6 @@ const CitiesGrid = styled.div`
   }
 `;
 
-
 const CityCard = styled.div<{ $active: boolean }>`
   position: relative;
   background: ${({ $active }) => ($active ? "#1f2fbf" : "#0b1a6e")};
@@ -153,7 +147,6 @@ const CityCard = styled.div<{ $active: boolean }>`
     transform: translateY(-4px);
   }
 `;
-
 
 const CityAddress = styled.div`
   position: absolute;
@@ -183,9 +176,6 @@ const CityAddress = styled.div`
     }
   }
 `;
-
-
-
 
 const CityIcon = styled.div<{ $active: boolean }>`
   width: 70px;
@@ -217,12 +207,9 @@ const CityState = styled.p`
   margin-bottom: 1rem;
 `;
 
-
-
-
 const CTASection = styled.section`
   padding: 5rem 2rem;
-background: ${({ theme }) => theme.colors.gray[100]};
+  background: ${({ theme }) => theme.colors.gray[100]};
   text-align: center;
 
   h2 {
@@ -243,8 +230,6 @@ background: ${({ theme }) => theme.colors.gray[100]};
   }
 `;
 
-
-
 const CTAButtons = styled.div`
   display: flex;
   justify-content: center;
@@ -252,14 +237,13 @@ const CTAButtons = styled.div`
   flex-wrap: wrap;
 `;
 
-
 const PrimaryButton = styled.a`
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
 
-  background: #00ff66; /* verde Pulse */
-  color: #0b1a6e;      /* azul escuro para contraste */
+  background: #0dff00; /* verde Pulse */
+  color: #0b1a6e; /* azul escuro para contraste */
 
   padding: 0.9rem 2.2rem;
   border-radius: 2rem;
@@ -273,29 +257,5 @@ const PrimaryButton = styled.a`
     box-shadow: 0 10px 22px rgba(0, 255, 102, 0.35);
   }
 `;
-
-
-const SecondaryButton = styled.a`
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-
-  background: transparent;
-  color: ${({ theme }) => theme.colors.primary};
-
-  padding: 0.9rem 2.2rem;
-  border-radius: 2rem;
-  font-weight: 500;
-  font-size: 1rem;
-
-  border: 1.5px solid rgba(17, 13, 241, 0.5);
-
-  transition: background 0.25s ease, color 0.25s ease;
-
-  &:hover {
-    background: rgba(255, 255, 255, 0.1);
-  }
-`;
-
 
 export default Cobertura;

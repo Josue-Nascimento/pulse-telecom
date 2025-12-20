@@ -74,25 +74,32 @@ const SobreNos: React.FC = () => {
                 Quem somos <span>nós</span>
               </h2>
               <p>
-                A Pulse Telecom nasceu com o propósito de levar internet de
-                qualidade para cidades do interior que muitas vezes são
-                esquecidas pelas grandes operadoras. Acreditamos que todos
-                merecem acesso a uma conexão rápida e estável.
+                Nascemos com o propósito de levar conectividade de alta
+                qualidade a todos, acreditando que o acesso à internet é
+                essencial para o desenvolvimento pessoal, profissional e social.
+                Somos uma equipe comprometida em oferecer muito mais do que um
+                serviço, entregamos uma experiência positiva, estável e
+                eficiente em cada conexão.
               </p>
+
               <p>
-                Com tecnologia de ponta em fibra óptica, oferecemos planos
-                residenciais e corporativos que atendem desde o usuário casual
-                até empresas que dependem de conexões dedicadas e de alta
-                performance.
+                Unimos tecnologia de ponta, infraestrutura moderna e soluções
+                inovadoras a um atendimento ético, transparente e humano, sempre
+                focado nas reais necessidades de nossos clientes. Trabalhamos
+                diariamente para garantir desempenho, segurança e
+                confiabilidade, porque entendemos que estar conectado é estar
+                presente no mundo.
               </p>
+
               <p>
-                Nossa equipe é formada por profissionais apaixonados por
-                tecnologia e comprometidos em oferecer o melhor atendimento e
-                suporte técnico da região.
+                Nosso compromisso vai além da instalação: buscamos construir
+                relações duradouras, baseadas na confiança, no respeito e na
+                excelência. É assim que transformamos tecnologia em qualidade de
+                vida e conexão em resultados reais.
               </p>
             </AboutText>
             <AboutImage>
-              <Clock size={200} strokeWidth={1} />
+              <img src="/PulseLogoNatal.jpg" alt="Imagem institucional Pulse Telecom" />
             </AboutImage>
           </AboutContent>
         </Container>
@@ -150,7 +157,9 @@ const AboutContent = styled.div`
 const AboutText = styled.div`
   h2 {
     font-size: 2.5rem;
-    color: ${({ theme }) => theme.colors.primary};
+    background: linear-gradient(90deg, #0b1a6e, #1f2fbf, #3b4cff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     margin-bottom: 1.5rem;
 
     span {
@@ -159,7 +168,7 @@ const AboutText = styled.div`
   }
 
   p {
-    color: ${({ theme }) => theme.colors.textLight};
+    color: #0b1a6e;
     line-height: 1.8;
     margin-bottom: 1.5rem;
     font-size: 1.1rem;
@@ -167,21 +176,19 @@ const AboutText = styled.div`
 `;
 
 const AboutImage = styled.div`
-  background: linear-gradient(
-    135deg,
-    ${({ theme }) => theme.colors.gray[100]},
-    ${({ theme }) => theme.colors.gray[200]}
-  );
+
   border-radius: 1.5rem;
   padding: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
-
+img{
+    border-radius: 1.5rem;
+}
   svg {
     width: 200px;
     height: 200px;
-    color: ${({ theme }) => theme.colors.secondary};
+    color: #132fcf;
     opacity: 0.8;
   }
 `;
