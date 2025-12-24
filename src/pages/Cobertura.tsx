@@ -107,8 +107,11 @@ const SectionTitle = styled.div`
 
   h2 {
     font-size: 2.5rem;
-    color: ${({ theme }) => theme.colors.primary};
-    margin-bottom: 1rem;
+    font-weight:bold ;
+    background: linear-gradient(90deg, #0b1a6e, #1f2fbf, #3b4cff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
   }
 
   p {
@@ -215,8 +218,11 @@ const CTASection = styled.section`
   h2 {
     font-size: 2.4rem;
     margin-bottom: 1rem;
-    font-weight: 700;
-    color: ${({ theme }) => theme.colors.primary};
+   font-weight:bold ;
+    background: linear-gradient(90deg, #0b1a6e, #1f2fbf, #3b4cff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
   }
 
   p {

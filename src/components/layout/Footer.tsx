@@ -4,12 +4,10 @@ import { Link } from "react-router-dom";
 import { MessageCircle } from "lucide-react";
 import {
   Phone,
-  Mail,
-  MapPin,
   Facebook,
   Instagram,
-  Linkedin,
 } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 import { useLocation } from "react-router-dom";
 
 const Footer: React.FC = () => {
@@ -54,7 +52,7 @@ const Footer: React.FC = () => {
                 rel="noopener noreferrer"
                 href="https://api.whatsapp.com/send?phone=551231165043"
               >
-                <MessageCircle size={22} />
+                <FaWhatsapp size={24} />
               </a>
 
               <a

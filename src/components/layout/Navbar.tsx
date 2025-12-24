@@ -9,6 +9,8 @@ import {
   Facebook,
   Instagram,
 } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
+
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -107,7 +109,7 @@ const Navbar: React.FC = () => {
               rel="noopener noreferrer"
               href="https://api.whatsapp.com/send?phone=551231165043"
             >
-              <MessageCircle size={16} />
+              <FaWhatsapp size={18} />
             </SocialIcon>
             <SocialIcon
               target="_blank"
@@ -149,7 +151,22 @@ const Navbar: React.FC = () => {
           >
             {item.label}
           </MobileButtonLink>
+          
         ))}
+        <MobileClientArea
+              target="_blank"
+              rel="noopener noreferrer"
+              href=" https://erp.brasil-ip.net/central_assinante_web/login"
+            >
+            Área do cliente
+            </MobileClientArea>
+         <CTAButton
+            href=" https://pulsetelecom.conecte.ai/?cupom=site-novo-2026"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Assine já!
+          </CTAButton>
       </MobileMenu>
     </Nav>
   );
@@ -221,6 +238,7 @@ const DesktopNav = styled.div`
 
   @media (max-width: 1024px) {
     display: none;
+    
   }
 `;
 
@@ -254,6 +272,14 @@ const TopActions = styled.div`
   color: #fff;
   font-size: 0.85rem;
 `;
+const MobileClientArea = styled.a`
+   background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+`;
+
 
 const ClientArea = styled.a`
   display: flex;
