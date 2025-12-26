@@ -8,12 +8,7 @@ export default function Residencial() {
           <HeroText>
             <h1>A melhor experiência ao seu alcance com o Wi-Fi 6</h1>
             <p>
-              Experimente uma conexão de alta velocidade com velocidades de até{" "}
-              <strong> 1 GIGA</strong> com inteligência artificial. Navegue,
-              transmita e faça downloads com uma velocidade incomparável,
-              permitindo que você realize todas as suas atividades online de
-              forma rápida e eficiente. Esteja um passo à frente com a melhor
-              internet do mercado.
+              Experimente a velocidade incomparável de até <strong>1 GIGA</strong>  com a nossa rede Wi-Fi 6. Navegue, transmita e jogue online de forma mais rápida e eficiente. Tenha a melhor internet do mercado ao seu alcance.
             </p>
 
             <HeroButton
@@ -71,7 +66,7 @@ font-weight:bold ;
     -webkit-text-fill-color: transparent;
 
     @media (max-width: 768px) {
-      font-size: 2.1rem;
+      font-size: 1.4rem;
       line-height: 1.2;
     }
   }
@@ -81,9 +76,9 @@ font-weight:bold ;
     max-width: 520px;
     margin-bottom: 2rem;
 
-    @media (max-width: 1024px) {
+    @media (max-width: 768px) {
       margin: 0 auto 2rem;
-      font-size: 1rem;
+      font-size: 0.9rem;
     }
   }
 `;
@@ -91,8 +86,8 @@ font-weight:bold ;
 
 const HeroButton = styled.a`
   display: inline-flex;
-  align-items: center; /* eixo vertical */
-  justify-content: center; /* eixo horizontal */
+  align-items: center;
+  justify-content: center;
   text-align: center;
 
   gap: 0.5rem;
@@ -111,6 +106,7 @@ const HeroButton = styled.a`
     filter: brightness(1.1);
     transform: translateY(-2px);
   }
+
   /* ===== TABLET ===== */
   @media (max-width: 1024px) {
     width: 70%;
@@ -118,11 +114,16 @@ const HeroButton = styled.a`
 
   /* ===== MOBILE ===== */
   @media (max-width: 768px) {
-    width: 100%;
+    width: 80%;
     height: 56px;
-    font-size: 0.95rem;
+    font-size: 0.9rem;
+
+    svg {
+      display: none; /* 🔥 some a seta */
+    }
   }
 `;
+
 
 const HeroImages = styled.div`
   position: relative;

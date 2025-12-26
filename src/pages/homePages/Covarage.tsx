@@ -29,24 +29,40 @@ export default function CovarageSection() {
     "Vassouras",
     "São José do Barreiro",
     "Resende",
-    "Cachoeira Paulista"
+    "Cachoeira Paulista",
+    "Valença",
+    "Visconde de Mauá"
   ];
+const firstRow = cities.slice(0, 5); // 5 cidades
+const secondRow = cities.slice(5, 8); // 3 cidades
 
   return (
     <>
-      <CoverageSection id="cobertura">
-        <CoverageContent>
-          <h2>Nossas Lojas</h2>
-          <CitiesGrid>
-            {cities.map((city) => (
-              <CityTag to="/cobertura" key={city}>
-                <MapPin size={18} />
-                {city}
-              </CityTag>
-            ))}
-          </CitiesGrid>
-        </CoverageContent>
-      </CoverageSection>
+     <CoverageSection id="cobertura">
+  <CoverageContent>
+    <h2>Nossas Lojas</h2>
+
+    <CitiesRow>
+      {firstRow.map((city) => (
+        <CityTag to="/cobertura" key={city}>
+          <MapPin size={18} />
+          {city}
+        </CityTag>
+      ))}
+    </CitiesRow>
+
+    <CitiesRow>
+      {secondRow.map((city) => (
+        <CityTag to="/cobertura" key={city}>
+          <MapPin size={18} />
+          {city}
+        </CityTag>
+      ))}
+    </CitiesRow>
+
+  </CoverageContent>
+</CoverageSection>
+
     </>
   );
 }
@@ -57,6 +73,16 @@ const CoverageSection = styled.section`
 
   @media (max-width: 768px) {
     padding: 4rem 1.5rem;
+  }
+`;
+const CitiesRow = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+
+  @media (max-width: 480px) {
+    flex-wrap: wrap; /* no mobile pode quebrar */
   }
 `;
 

@@ -103,28 +103,7 @@ const SobreNos: React.FC = () => {
 };
 export default SobreNos;
 
-const PageHeader = styled.section`
-  background: linear-gradient(90deg, #0b1a6e, #1f2fbf, #3b4cff);
-  color: ${({ theme }) => theme.colors.white};
-  padding: 6rem 2rem;
-  text-align: center;
 
-  h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-
-    @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-      font-size: 2.25rem;
-    }
-  }
-
-  p {
-    font-size: 1.25rem;
-    opacity: 0.9;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-`;
 
 const AboutSection = styled.section`
   padding: 5rem 2rem;
@@ -150,24 +129,43 @@ const AboutContent = styled.div`
 
 const AboutText = styled.div`
   h2 {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     background: linear-gradient(90deg, #0b1a6e, #1f2fbf, #3b4cff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin-bottom: 1.5rem;
-
-    span {
-      color: ${({ theme }) => theme.colors.secondary};
-    }
+    margin-bottom: 1rem;
+    font-weight: bold;
   }
 
   p {
     color: #0b1a6e;
-    line-height: 1.8;
-    margin-bottom: 1.5rem;
+
+    margin-bottom: 1rem;
     font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.8rem;
+  }
+
+  /* 🎯 Apenas o parágrafo do meio com fundo */
+  p:nth-of-type(2) {
+    background: linear-gradient(90deg, #0b1a6e, #1f2fbf, #3b4cff);
+    color: #fff; /* texto branco para contraste */
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    h2 {
+      font-size: 2.2rem;
+    }
+  }
+
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    h2 {
+      font-size: 2rem;
+    }
   }
 `;
+
+
 
 const AboutImage = styled.div`
 

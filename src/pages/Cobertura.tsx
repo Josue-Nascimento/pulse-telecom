@@ -27,6 +27,7 @@ const Cobertura: React.FC = () => {
       state: "São Paulo",
       address:
         "Rua Doutor Olimpio Alves Magalhães, 07, Centro, São José do Barreiro - SP",
+      extraSpace: true,
     },
     {
       name: "Resende",
@@ -36,6 +37,17 @@ const Cobertura: React.FC = () => {
     {
       name: "Cachoeira Paulista",
       state: "São Paulo",
+      address: "Av. Sarah Kubitschek, 37, Cachoeira Paulista - SP, 12630-000",
+      extraSpace: true,
+    },
+    {
+      name: "Valença",
+      state: "Minas Gerais",
+      address: "Av. Sarah Kubitschek, 37, Cachoeira Paulista - SP, 12630-000",
+    },
+    {
+      name: "Visconde de Mauá",
+      state: "Rio de Janeiro",
       address: "Av. Sarah Kubitschek, 37, Cachoeira Paulista - SP, 12630-000",
     },
   ];
@@ -64,7 +76,9 @@ const Cobertura: React.FC = () => {
                 <CityState>{city.state}</CityState>
 
                 {selectedCity === index && (
-                  <CityAddress>{city.address}</CityAddress>
+                  <CityAddress $extra={city.extraSpace}>
+                    {city.address}
+                  </CityAddress>
                 )}
               </CityCard>
             ))}
@@ -107,11 +121,10 @@ const SectionTitle = styled.div`
 
   h2 {
     font-size: 2.5rem;
-    font-weight:bold ;
+    font-weight: bold;
     background: linear-gradient(90deg, #0b1a6e, #1f2fbf, #3b4cff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-
   }
 
   p {
@@ -122,16 +135,18 @@ const SectionTitle = styled.div`
 
 const CitiesGrid = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr); /* 4 colunas */
   gap: 2rem;
-  align-items: start; /* 🔥 ESSENCIAL */
+  align-items: start;
 
-  @media (max-width: 900px) {
-    grid-template-columns: repeat(2, 1fr);
+  /* tablet */
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas */
   }
 
+  /* mobile */
   @media (max-width: 600px) {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* 1 coluna */
   }
 `;
 
@@ -153,18 +168,16 @@ const CityCard = styled.div<{ $active: boolean }>`
 
 const CityAddress = styled.div`
   position: absolute;
-  left: 1.5rem;
-  right: 1.5rem;
-  top: 12rem;
+  left: 1rem;
+top: ${({ $extra }) => ($extra ? "13.6rem" : "12.6rem")};
   background: rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(8px);
-  padding: 1rem;
   border-radius: 0.75rem;
-
-  font-size: 0.9rem;
+  width: 90%;
+  font-size: 0.7rem;
   line-height: 1.4;
   color: #ffffff;
-
+  padding: 10px;
   animation: fadeUp 0.3s ease;
   z-index: 5;
 
@@ -218,11 +231,10 @@ const CTASection = styled.section`
   h2 {
     font-size: 2.4rem;
     margin-bottom: 1rem;
-   font-weight:bold ;
+    font-weight: bold;
     background: linear-gradient(90deg, #0b1a6e, #1f2fbf, #3b4cff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-
   }
 
   p {

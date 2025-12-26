@@ -46,18 +46,12 @@ const SectionTitle = styled.div`
   margin-bottom: 3rem;
 
   h2 {
-    font-size: 2.9rem;
-    font-weight:bold ;
+    font-size: 2.9rem; /* 🖥 desktop */
+    font-weight: bold;
     background: linear-gradient(90deg, #0b1a6e, #1f2fbf, #3b4cff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin-bottom: 1rem;
-
-    @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-      font-size: 1.8rem;
-
-    }
-    
   }
 
   p {
@@ -68,12 +62,34 @@ const SectionTitle = styled.div`
     display: flex;
     justify-content: center;
     white-space: nowrap;
+  }
 
-    @media (max-width: 1024px) {
-      white-space: normal; /* 🔥 deixa quebrar */
+  /* 📱 Tablet */
+  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
+    h2 {
+      font-size: 2.2rem;
+    }
+
+    p {
+      white-space: normal; /* quebra em tablet */
+      font-size: 17px;
+    }
+  }
+
+  /* 📱 Mobile */
+ @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+  h2 {
+    font-size: 1.3rem;
+  
+    white-space: normal;
+  }
+
+    p {
+      font-size: 12px;
     }
   }
 `;
+
 const PlansSection = styled.section.attrs({
   id: "solucoes-corporativas",
 })`
@@ -128,9 +144,9 @@ const HeroButtonSide = styled.a`
 
   /* MOBILE */
   @media (max-width: 768px) {
-    width: 100%;
+    width: 80%;
     height: 56px;
-    font-size: 1rem;
+    font-size: 0.9rem;
 
     .arrow {
       display: none;
@@ -146,9 +162,9 @@ const VideoWrapper = styled.div`
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 
-  /* MOBILE → vídeo em cima */
   @media (max-width: 1024px) {
-    order: 1;
+ 
+    width: 80%;
   }
 
   video {
@@ -157,4 +173,5 @@ const VideoWrapper = styled.div`
     display: block;
   }
 `;
+
 

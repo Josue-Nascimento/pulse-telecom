@@ -19,13 +19,7 @@ export default function ChipTelefone() {
             <h2>Tenha uma conexão completa</h2>
 
             <p>
-              Em casa ou no escritório, desfrute da clareza e estabilidade da
-              nossa Telefonia Fixa Inteligente, com chamadas de voz em alta
-              definição. Na rua, leve a ultravelocidade no bolso com nossa rede
-              Móvel 5G, que garante navegação, streaming e downloads
-              instantâneos onde você estiver. Fixo ou móvel, a mesma excelência.
-              Esteja sempre à frente com a tecnologia que une todos os seus
-              mundos.
+              Conectividade completa para o seu dia a dia. Oferecemos telefonia fixa com chamadas nítidas e rede móvel 5G com ultravelocidade para você ficar sempre online. A solução ideal para casa, escritório e onde mais você for.
             </p>
 
             <ActionButton href="#">Soluções para comunicação</ActionButton>
