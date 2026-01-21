@@ -39,6 +39,11 @@ const HeroSection = styled.section`
   padding: 5rem 2rem;
   background: ${({ theme }) => theme.colors.white};
   scroll-margin-top: 120px;
+
+  @media (max-width: 768px) {
+    height: 670px;
+    display: flex;
+    }
 `;
 
 const HeroContent = styled.div`
@@ -66,7 +71,7 @@ font-weight:bold ;
     -webkit-text-fill-color: transparent;
 
     @media (max-width: 768px) {
-      font-size: 1.4rem;
+      font-size:35px;
       line-height: 1.2;
     }
   }
@@ -78,7 +83,7 @@ font-weight:bold ;
 
     @media (max-width: 768px) {
       margin: 0 auto 2rem;
-      font-size: 0.9rem;
+      font-size: 1.3rem;
     }
   }
 `;
@@ -114,9 +119,9 @@ const HeroButton = styled.a`
 
   /* ===== MOBILE ===== */
   @media (max-width: 768px) {
-    width: 80%;
-    height: 56px;
-    font-size: 0.9rem;
+    width: 100%;
+    height: 58px;
+    font-size: 1.1rem;
 
     svg {
       display: none; /* 🔥 some a seta */
@@ -137,6 +142,7 @@ const HeroImages = styled.div`
   @media (max-width: 768px) {
     width: 300px;
     height: 300px;
+    display: none;
   }
 `;
 

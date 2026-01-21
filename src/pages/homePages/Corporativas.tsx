@@ -46,7 +46,7 @@ const SectionTitle = styled.div`
   margin-bottom: 3rem;
 
   h2 {
-    font-size: 2.9rem; /* 🖥 desktop */
+    font-size: 2.9rem; /* 🖥 desktop (INALTERADO) */
     font-weight: bold;
     background: linear-gradient(90deg, #0b1a6e, #1f2fbf, #3b4cff);
     -webkit-background-clip: text;
@@ -57,7 +57,7 @@ const SectionTitle = styled.div`
   p {
     display: inline-block;
     font-weight: 500;
-    font-size: 18px;
+    font-size: 18px; /* 🖥 desktop (INALTERADO) */
     text-align: center;
     display: flex;
     justify-content: center;
@@ -67,25 +67,25 @@ const SectionTitle = styled.div`
   /* 📱 Tablet */
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     h2 {
-      font-size: 2.2rem;
+      font-size: 2.3rem;
     }
 
     p {
-      white-space: normal; /* quebra em tablet */
-      font-size: 17px;
+      white-space: normal;
+      font-size: 1rem;
     }
   }
 
   /* 📱 Mobile */
- @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-  h2 {
-    font-size: 1.3rem;
-  
-    white-space: normal;
-  }
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    h2 {
+      font-size: 1.7rem;
+      line-height: 1.2;
+      white-space: normal;
+    }
 
     p {
-      font-size: 12px;
+      font-size: 1.1rem;
     }
   }
 `;
@@ -93,7 +93,7 @@ const SectionTitle = styled.div`
 const PlansSection = styled.section.attrs({
   id: "solucoes-corporativas",
 })`
-  scroll-margin-top: 130px; /* altura navbar + respiro */
+  scroll-margin-top: 130px; /* desktop INALTERADO */
   padding: 5rem 2rem;
   background: ${({ theme }) => theme.colors.gray[100]};
 `;
@@ -106,13 +106,12 @@ const PlansGrid = styled.div`
   align-items: center;
   gap: 3rem;
 
-  /* MOBILE */
+  /* TABLET + MOBILE */
   @media (max-width: 1024px) {
     flex-direction: column;
     text-align: center;
   }
 `;
-
 
 const HeroButtonSide = styled.a`
   display: inline-flex;
@@ -120,12 +119,12 @@ const HeroButtonSide = styled.a`
   justify-content: center;
   gap: 0.6rem;
 
-  width: 30%;
-  height: 80px;
+  width: 30%; /* 🖥 desktop INALTERADO */
+  height: 80px; /* 🖥 desktop INALTERADO */
 
   background: linear-gradient(90deg, #0b1a6e, #1f2fbf, #3b4cff);
   color: #ffffff;
-  font-size: 20px;
+  font-size: 20px; /* 🖥 desktop INALTERADO */
   font-weight: 600;
   border-radius: 10px;
   text-decoration: none;
@@ -136,24 +135,25 @@ const HeroButtonSide = styled.a`
     transform: translateY(-2px);
   }
 
-  /* TABLET */
+  /* 📱 Tablet */
   @media (max-width: 1024px) {
     width: 70%;
-    order: 2; /* 🔥 botão fica abaixo do vídeo */
+    height: 64px;
+    font-size: 1.05rem;
+    order: 2;
   }
 
-  /* MOBILE */
+  /* 📱 Mobile */
   @media (max-width: 768px) {
-    width: 80%;
+    width: 85%;
     height: 56px;
-    font-size: 0.9rem;
+    font-size: 1rem;
 
     .arrow {
       display: none;
     }
   }
 `;
-
 
 const VideoWrapper = styled.div`
   width: 100%;
@@ -162,9 +162,15 @@ const VideoWrapper = styled.div`
   overflow: hidden;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 
+  /* 📱 Tablet */
   @media (max-width: 1024px) {
- 
-    width: 80%;
+    width: 85%;
+  }
+
+  /* 📱 Mobile */
+  @media (max-width: 600px) {
+    width: 95%;
+    border-radius: 14px;
   }
 
   video {
@@ -173,5 +179,3 @@ const VideoWrapper = styled.div`
     display: block;
   }
 `;
-
-

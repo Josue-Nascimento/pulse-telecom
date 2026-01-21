@@ -40,6 +40,8 @@ const Section = styled.section`
 
   @media (max-width: 768px) {
     padding: 4rem 1.5rem;
+    height: 700px;
+    display: flex;
   }
 `;
 
@@ -89,8 +91,8 @@ const Images = styled.div`
   align-items: center;
   justify-content: center;
 
-  @media (max-width: 900px) {
-    flex-direction: column;
+    @media (max-width: 900px) {
+    display: none;
   }
 `;
 
@@ -146,7 +148,7 @@ font-weight:bold ;
     @media (max-width: 900px) {
       max-width: 100%;
       margin: 0 auto 2rem;
-      font-size: 1rem;
+      font-size: 1.3rem;
     }
   }
 `;
@@ -169,5 +171,10 @@ const ActionButton = styled.a`
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  
   }
+    @media (max-width: 900px) {
+      max-width: 100%;
+      font-size: 1.1rem;
+    }
 `;
