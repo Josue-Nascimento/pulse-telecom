@@ -44,6 +44,9 @@ const HighlightWrapper = styled.section`
   border-radius: 32px;
   background: linear-gradient(135deg, #0b1a6e, #2d2df5);
   color: #ffffff;
+  @media (max-width: 480px) {
+    padding: 2rem 1rem;
+  }
 `;
 
 const HighlightGrid = styled.div`
@@ -53,17 +56,21 @@ const HighlightGrid = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
-  align-items: end;
+  align-items: end; /* 🖥 PC OK */
 
+  /* 📱 TABLET + MOBILE */
   @media (max-width: 900px) {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1.4rem;
+    align-items: flex-start; /* 🔥 sobe o conteúdo */
     text-align: center;
   }
 `;
 
-
 const HighlightTitle = styled.div`
+  width: 100%;
+  margin-bottom: 0.8rem; /* 🔥 separação bonita */
+
   h1 {
     font-size: 2.8rem;
     line-height: 1.2;
@@ -72,28 +79,39 @@ const HighlightTitle = styled.div`
 
     span {
       color: #02f711;
-      @media (max-width: 480px) {
-      font-size: 1.3rem;
-      line-height: 1.25;
-    }
     }
 
+    /* 📱 TABLET */
     @media (max-width: 900px) {
-      font-size: 2.2rem;
+      font-size: 2.4rem;
+      line-height: 1.2;
       text-align: center;
+      max-width: 100%;
+      word-break: normal;
+      overflow-wrap: break-word;
     }
 
+    /* 📱 MOBILE */
     @media (max-width: 480px) {
-      font-size: 1.3rem;
-      line-height: 1.5;
+      font-size: 1.6rem;
+      line-height: 1.25;
+      text-align: left;
+      white-space: normal;
+      word-break: keep-all;
+  
+      /* 🔥 REMOVE SOMENTE O PRIMEIRO <br> */
+      br:first-of-type {
+        display: none;
+      }
     }
   }
 `;
 
-
 const HighlightDescription = styled.div`
+  width: 100%;
+  margin-top: 0.5rem;
   p {
-    font-size: 1.5rem;
+    font-size: 1.5rem; /* 🖥 PC INALTERADO */
     line-height: 1.4;
     opacity: 0.95;
     font-weight: 300;
@@ -102,16 +120,19 @@ const HighlightDescription = styled.div`
       color: #19ff28;
     }
 
+    /* 📱 TABLET */
     @media (max-width: 900px) {
       font-size: 1.3rem;
     }
 
+    /* 📱 MOBILE */
     @media (max-width: 480px) {
-      font-size: 1rem;
+      font-size: 1.3rem;
+      line-height: 1.6;
+      text-align: justify;
     }
   }
 `;
-
 
 const HighlightAction = styled.div`
   margin-top: 3rem;
@@ -125,32 +146,37 @@ const HighlightButton = styled.a`
   padding: 0.5rem 2.4rem;
   border-radius: 10px;
   font-weight: 700;
-  font-size: 15px;
+  font-size: 15px; /* 🖥 PC INALTERADO */
   text-decoration: none;
   transition: all 0.25s ease;
 
-  width: 20%;
-  height: 50px;
+  width: 20%; /* 🖥 PC INALTERADO */
+  height: 50px; /* 🖥 PC INALTERADO */
 
   display: inline-flex;
   justify-content: center;
   align-items: center;
 
-  white-space: nowrap;      /* 🔑 NÃO QUEBRA LINHA */
+  white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;  /* segurança, se faltar espaço */
+  text-overflow: ellipsis;
 
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
   }
 
+  /* 📱 TABLET */
   @media (max-width: 900px) {
-    width: 60%;
+    width: 65%;
+    height: 56px;
+    font-size: 16px;
   }
 
+  /* 📱 MOBILE */
   @media (max-width: 480px) {
     width: 100%;
-    font-size: 14px;
+    height: 58px;
+    font-size: 1.1rem;
   }
 `;

@@ -73,6 +73,7 @@ const CoverageSection = styled.section`
 
   @media (max-width: 768px) {
     padding: 4rem 1.5rem;
+    
   }
 `;
 const CitiesRow = styled.div`
@@ -80,7 +81,11 @@ const CitiesRow = styled.div`
   justify-content: center;
   gap: 1rem;
   margin-bottom: 1rem;
-
+  /* 📱 TABLET */
+  @media (max-width: 1024px) {
+    flex-wrap: wrap; /* 🔥 QUEBRA NO TABLET */
+    gap: 0.8rem;
+  }
   @media (max-width: 480px) {
     flex-wrap: wrap; /* no mobile pode quebrar */
   }
@@ -91,31 +96,23 @@ const CoverageContent = styled.div`
   margin: 0 auto;
   text-align: center;
 
-  h2 {
-    font-size: 2.5rem;
+h2 {
+    font-size: 2.5rem; /* Desktop */
     margin-bottom: 1rem;
-    font-weight:bold ;
+    font-weight: bold;
     background: linear-gradient(90deg, #0b1a6e, #1f2fbf, #3b4cff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
+    /* 📱 Mobile/Tablet */
     @media (max-width: 768px) {
-      font-size: 2rem;
+      font-size: 2rem; /* Alterado de 2rem para 1.7rem */
+      line-height: 1.2;  /* Adicionado para evitar que as linhas fiquem grudadas */
     }
   }
 `;
 
 
-const CitiesGrid = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-
-  @media (max-width: 480px) {
-    gap: 0.75rem;
-  }
-`;
 
 
 const CityTag = styled(Link)`
@@ -145,9 +142,13 @@ const CityTag = styled(Link)`
   svg {
     color: #ffffff;
   }
-
+  /* 📱 TABLET */
+  @media (max-width: 1024px) {
+    min-width: 160px; /* 🔥 PADRONIZA TAMANHO */
+    font-size: 0.9rem;
+    padding: 0.65rem 1.2rem;
+  }
   @media (max-width: 480px) {
-    font-size: 0.85rem;
-    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
   }
 `;

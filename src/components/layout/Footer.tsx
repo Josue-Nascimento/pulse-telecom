@@ -135,9 +135,13 @@ const Left = styled.div`
     margin-top: 5px;
     font-size: 10px;
   }
-  @media (max-width: 900px) {
-    p {
-      margin: 0 auto;
+@media (max-width: 900px) {
+  p:first-of-type {
+    margin: 0 auto;
+ 
+      text-align: justify;
+     
+      max-width: 90%; 
     }
   }
 `;

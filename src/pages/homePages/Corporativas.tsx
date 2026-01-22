@@ -77,15 +77,21 @@ const SectionTitle = styled.div`
   }
 
   /* 📱 Mobile */
-  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+@media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    padding: 0 20px; /* Evita que o texto encoste nas bordas da tela */
+
     h2 {
-      font-size: 1.7rem;
-      line-height: 1.2;
-      white-space: normal;
+      font-size: 2rem;
+      line-height: 1.1;
+       text-align:  justify;
     }
 
     p {
-      font-size: 1.1rem;
+      display: flex;      /* Muda de flex para block para o text-align funcionar melhor */
+      font-size: 1.3rem;   /* Um pouco menor para caber melhor na tela */
+      line-height: 1.4;
+      text-align:  justify;
+      width: 100%;
     }
   }
 `;
@@ -145,9 +151,9 @@ const HeroButtonSide = styled.a`
 
   /* 📱 Mobile */
   @media (max-width: 768px) {
-    width: 85%;
-    height: 56px;
-    font-size: 1rem;
+    width: 100%;
+    height: 58px;
+    font-size: 1.1rem;
 
     .arrow {
       display: none;
