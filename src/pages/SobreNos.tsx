@@ -184,6 +184,15 @@ const HighlightParagraph = styled.p`
     margin: 0;
     background: linear-gradient(90deg, #0b1a6e, #1f2fbf, #3b4cff);
     color: #fff;
+    @media (max-width: 480px) {
+  font-size: 1.3rem;
+
+  text-align: center;   /* ← TROQUE justify por left */
+  line-height: 1.7;
+
+  word-spacing: normal;
+  letter-spacing: normal;
+}
   }
 `;
 
@@ -198,12 +207,23 @@ const ThirdParagraph = styled.div`
     font-size: 20px;
     flex: 1;
     margin: 0;
+    
+@media (max-width: 480px) {
+  font-size: 1.3rem;
+
+   text-align: center;   /* ← TROQUE justify por left */
+  line-height: 1.7;
+
+  word-spacing: normal;
+  letter-spacing: normal;
+}
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     flex-direction: column;
     align-items: center;
     text-align: center;
+    
   }
 `;
 const FirstParagraph = styled.div`
@@ -212,11 +232,24 @@ const FirstParagraph = styled.div`
   justify-content: center;
   gap: 2rem;
 
-  p {
-    font-size: 20px;
-    flex: 1;
-    margin: 0;
-  }
+p {
+  font-size: 20px;
+  flex: 1;
+  margin: 0;
+  line-height: 1.6;
+
+@media (max-width: 480px) {
+  font-size: 1.3rem;
+
+  text-align: center;  /* ← TROQUE justify por left */
+  line-height: 1.7;
+
+  word-spacing: normal;
+  letter-spacing: normal;
+}
+}
+
+
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
     flex-direction: column;
@@ -241,6 +274,7 @@ const AboutImage = styled.div`
   }
 
   @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    width: 120px;
+    width: 230px;
+    display: none;
   }
 `;

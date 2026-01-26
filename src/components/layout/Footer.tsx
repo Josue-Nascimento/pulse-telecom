@@ -139,7 +139,7 @@ const Left = styled.div`
   p:first-of-type {
     margin: 0 auto;
  
-      text-align: justify;
+      text-align: center;
      
       max-width: 90%; 
     }

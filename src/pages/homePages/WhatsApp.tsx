@@ -95,7 +95,7 @@ const HighlightTitle = styled.div`
     @media (max-width: 480px) {
       font-size: 1.6rem;
       line-height: 1.25;
-      text-align: left;
+  
       white-space: normal;
       word-break: keep-all;
   
@@ -129,7 +129,7 @@ const HighlightDescription = styled.div`
     @media (max-width: 480px) {
       font-size: 1.3rem;
       line-height: 1.6;
-      text-align: justify;
+    
     }
   }
 `;

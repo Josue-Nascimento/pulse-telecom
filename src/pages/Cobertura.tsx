@@ -42,7 +42,7 @@ const Cobertura: React.FC = () => {
     },
     {
       name: "Valença",
-      state: "Minas Gerais",
+      state: "Rio de Janeiro",
       address: "Av. Sarah Kubitschek, 37, Cachoeira Paulista - SP, 12630-000",
     },
     {
@@ -125,6 +125,7 @@ const SectionTitle = styled.div`
     background: linear-gradient(90deg, #0b1a6e, #1f2fbf, #3b4cff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    
   }
 
   p {
@@ -164,6 +165,10 @@ const CityCard = styled.div<{ $active: boolean }>`
     background: #1f2fbf;
     transform: translateY(-4px);
   }
+  @media (max-width: 480px) {
+
+
+}
 `;
 
 const CityAddress = styled.div`

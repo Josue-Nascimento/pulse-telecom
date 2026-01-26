@@ -83,14 +83,14 @@ const SectionTitle = styled.div`
     h2 {
       font-size: 2rem;
       line-height: 1.1;
-       text-align:  justify;
+ 
     }
 
     p {
       display: flex;      /* Muda de flex para block para o text-align funcionar melhor */
       font-size: 1.3rem;   /* Um pouco menor para caber melhor na tela */
       line-height: 1.4;
-      text-align:  justify;
+  
       width: 100%;
     }
   }

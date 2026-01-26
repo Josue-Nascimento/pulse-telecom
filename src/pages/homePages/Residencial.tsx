@@ -71,8 +71,9 @@ font-weight:bold ;
     -webkit-text-fill-color: transparent;
 
     @media (max-width: 768px) {
-      font-size:35px;
+      font-size:36px;
       line-height: 1.2;
+    
     }
   }
 
@@ -84,6 +85,7 @@ font-weight:bold ;
     @media (max-width: 768px) {
       margin: 0 auto 2rem;
       font-size: 1.3rem;
+      
     }
   }
 `;
@@ -163,9 +165,9 @@ const MainImage = styled.div`
       height: 200px;
     }
   }
-   @media (max-width: 768px) {
-         left: 28%;
-    }
+    @media (max-width: 1024px) {
+    display: none;
+  }
 `;
 
 const FloatingImage = styled.div`
