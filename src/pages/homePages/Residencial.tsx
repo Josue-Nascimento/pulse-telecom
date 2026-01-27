@@ -45,8 +45,7 @@ const HeroSection = styled.section`
   align-items: center;
   }
   @media (max-width: 768px) {
-    height: 670px;
-    display: flex;
+    height: 700px;
     }
 `;
 
@@ -78,19 +77,20 @@ font-weight:bold ;
     -webkit-text-fill-color: transparent;
 
     @media (max-width: 768px) {
-      font-size:36px;
-      line-height: 1.2;
+      font-size:35px;
+      line-height: 1.1;
+       max-width: 96%;
     }
   }
 
  && p {
     font-size: 2.3rem; /* 👈 agora vai funcionar */
-    max-width: 90%;
+    max-width: 95%;
     margin-bottom: 2rem;
 
     @media (max-width: 768px) {
       margin: 0 auto 2rem;
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       
     }
   }

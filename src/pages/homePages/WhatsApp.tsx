@@ -44,14 +44,15 @@ const HighlightWrapper = styled.section`
   border-radius: 32px;
   background: linear-gradient(135deg, #0b1a6e, #2d2df5);
   color: #ffffff;
-  @media (max-width: 480px) {
-    padding: 2rem 1rem;
+  @media (max-width: 1024px) {
+    height: 900px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
-   @media (max-width: 1024px) {
-  height: 900px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  @media (max-width: 480px) {
+    height: 700px;
+    padding: 2rem 1rem;
   }
 `;
 

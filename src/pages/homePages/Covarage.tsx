@@ -68,27 +68,34 @@ export default function CovarageSection() {
 const CoverageSection = styled.section`
   padding: 5rem 2rem;
 
-  @media (max-width: 768px) {
-    padding: 4rem 1.5rem;
-  }
   @media (max-width: 1024px) {
     height: 400px;
   }
+
+  /* 📱 MOBILE */
+  @media (max-width: 768px) {
+    padding: 4rem 1.5rem;
+    height: auto; /* 🔥 IMPORTANTE */
+  }
 `;
+
 const CitiesRow = styled.div`
   display: flex;
   justify-content: center;
   gap: 1rem;
   margin-bottom: 1rem;
-  /* 📱 TABLET */
+
   @media (max-width: 1024px) {
-    flex-wrap: wrap; /* 🔥 QUEBRA NO TABLET */
-    gap: 1rem;
+    flex-wrap: wrap;
   }
+
+  /* 📱 MOBILE */
   @media (max-width: 480px) {
-    flex-wrap: wrap; /* no mobile pode quebrar */
+   flex-wrap: wrap;
+  justify-content: center;
   }
 `;
+
 
 const CoverageContent = styled.div`
   max-width: 1280px;
@@ -104,12 +111,13 @@ const CoverageContent = styled.div`
     -webkit-text-fill-color: transparent;
 
     /* 📱 Mobile/Tablet */
+    @media (max-width: 1024px) {
+      font-size: 3rem;
+    }
     @media (max-width: 768px) {
       font-size: 2rem; /* Alterado de 2rem para 1.7rem */
       line-height: 1.2; /* Adicionado para evitar que as linhas fiquem grudadas */
-    }
-    @media (max-width: 1024px) {
-      font-size: 3rem;
+      
     }
   }
 `;
@@ -143,12 +151,12 @@ const CityTag = styled(Link)`
   svg {
     color: #ffffff;
   }
-  /* 📱 TABLET */
   @media (max-width: 1024px) {
     min-width: 200px; /* 🔥 PADRONIZA TAMANHO */
     font-size: 1.2rem;
   }
   @media (max-width: 480px) {
-    font-size: 1rem;
+      font-size: 1rem;
+  min-width: 45%; 
   }
 `;

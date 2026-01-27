@@ -38,17 +38,17 @@ const Section = styled.section`
   background: linear-gradient(90deg, #0b1a6e 0%, #1f2fbf 50%, #1225c7 100%);
   padding: 6rem 2rem;
 
+  @media (max-width: 1024px) {
+    height: 900px;
+    display: flex;
+    align-items: center;
+  }
   @media (max-width: 768px) {
     padding: 4rem 1.5rem;
     height: 700px;
     display: flex;
   }
-   @media (max-width: 1024px) {
-  height: 900px;
-  display: flex;
-  align-items: center;
-  }
-`;
+  `;
 
 
 const BackgroundPulse = styled.div`
@@ -140,7 +140,7 @@ const Text = styled.div`
     font-weight: bold;
 
     @media (max-width: 768px) {
-      font-size: 2.1rem;
+      font-size: 2rem;
     }
 
     /* ✅ TABLET */
@@ -190,17 +190,21 @@ const ActionButton = styled.a`
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
   }
 
-  @media (max-width: 900px) {
-    max-width: 100%;
-    font-size: 1.1rem;
-  }
-
+  
   /* ✅ TABLET */
-  @media (min-width: 769px) and (max-width: 1024px) {
-      width: 80%;
-      font-size: 2rem;
-      height: 80px;
+  @media  (max-width: 1024px) {
+    width: 80%;
+    font-size: 2rem;
+    height: 80px;
     
   }
+@media (max-width: 900px) {
+  width: 90%;
+  height: 58px;
+
+  font-size: 1.05rem;
+  white-space: nowrap; /* 🔥 impede quebrar linha */
+}
+
 `;
 

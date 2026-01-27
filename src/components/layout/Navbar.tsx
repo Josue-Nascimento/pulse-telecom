@@ -173,6 +173,8 @@ const Navbar: React.FC = () => {
 };
 
 export default Navbar;
+
+
 const MobileButtonLink = styled.button`
   background: none;
   border: none;
@@ -183,8 +185,13 @@ const MobileButtonLink = styled.button`
   &:hover {
     color: #00ff66;
   }
-    @media (max-width: 1024px) {
-    font-size: 30px;
+
+  /* ✅ MOBILE REAL */
+  @media (max-width: 768px) {
+    font-size: 1.3rem;
+  }
+    @media (min-width: 800px) and (max-width: 1024px) {
+    font-size: 1.7rem;
   }
 `;
 
@@ -203,7 +210,6 @@ const NavItemButton = styled.button`
   &:hover {
     color: #00ff66;
   }
-  
 `;
 
 const Nav = styled.nav`
@@ -217,7 +223,6 @@ const Nav = styled.nav`
   left: 0;
   width: 100%;
   z-index: 1000;
-  
 `;
 
 const NavContainer = styled.div`
@@ -225,10 +230,10 @@ const NavContainer = styled.div`
   margin: 0 auto;
   width: 100%;
   padding: 0 1rem;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
-  
 `;
 
 const Logo = styled(Link)`
@@ -245,7 +250,6 @@ const DesktopNav = styled.div`
   @media (max-width: 1024px) {
     display: none;
   }
-  
 `;
 
 const NavItem = styled(Link)<{ $active?: boolean }>`
@@ -258,7 +262,6 @@ const NavItem = styled(Link)<{ $active?: boolean }>`
     color: #00ff66;
   }
 
-  
 `;
 
 /* ===== AÇÕES DIREITA ===== */
@@ -272,7 +275,6 @@ const RightGroup = styled.div`
     display: none;
     
   }
-
 `;
 
 const TopActions = styled.div`
@@ -282,18 +284,21 @@ const TopActions = styled.div`
   color: #fff;
   font-size: 0.85rem;
 `;
+
 const MobileClientArea = styled.a`
-   background: none;
+  background: none;
   border: none;
   color: #fff;
   font-size: 1.2rem;
   cursor: pointer;
-   @media (max-width: 1024px) {
-    font-size: 30px;
+ @media (max-width: 1024PX) {
+    font-size: 1.7rem;
   }
-  
+  /* ✅ MOBILE REAL */
+  @media (max-width: 768px) {
+    font-size: 1.4rem;
+  }
 `;
-
 
 const ClientArea = styled.a`
   display: flex;
@@ -306,13 +311,11 @@ const ClientArea = styled.a`
   &:hover {
     text-decoration: underline;
   }
-  
 `;
 
 const SocialIcon = styled.a`
   color: #fff;
   display: flex;
-  
 `;
 
 const CTAButton = styled.a`
@@ -338,11 +341,19 @@ const CTAButton = styled.a`
     filter: brightness(0.95);
   }
 
+  /* 📱 Tablet (INALTERADO) */
   @media (max-width: 1024px) {
     margin-top: 1rem;
-    width: 40%;
-    height: 70px;
+    width: 35%;
+    height: 60px;
+     font-size: 1.9rem;
   }
+  
+  @media (max-width: 768px) {
+  font-size: 0.85rem;   /* 🔽 tamanho ideal */
+width:50%;
+height: 50px;
+}
 `;
 
 /* ===== MOBILE ===== */
@@ -360,7 +371,6 @@ const MobileButton = styled.button<{ $open?: boolean }>`
   @media (max-width: 1024px) {
     display: block;
   }
-  
 `;
 
 const MobileMenu = styled.div<{ $open: boolean }>`
@@ -383,7 +393,14 @@ const MobileMenu = styled.div<{ $open: boolean }>`
   pointer-events: ${({ $open }) => ($open ? "auto" : "none")};
 
   transition: all 0.4s ease;
-   @media (max-width: 1024px) {
-    font-size: 30px;
+
+  z-index: 999; /* 🔥 CORREÇÃO SOBREPOSIÇÃO */
+
+  /* ✅ MOBILE REAL */
+  @media (max-width: 768px) {
+    button,
+    a {
+      font-size: 1.3rem;
+    }
   }
 `;

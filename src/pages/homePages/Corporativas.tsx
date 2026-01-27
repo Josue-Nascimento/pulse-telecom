@@ -5,6 +5,8 @@ export default function SolucoesCorporativas() {
   return (
     <>
       <PlansSection>
+        
+  <SectionTitleWrapper>
         <SectionTitle>
           <h2>Explore nossas opções de conectividade empresarial</h2>
           <p>
@@ -12,6 +14,7 @@ export default function SolucoesCorporativas() {
             empresa para um futuro digital
           </p>
         </SectionTitle>
+        </SectionTitleWrapper>
         <PlansGrid>
           <HeroButtonSide
             href="https://pulsetelecom.conecte.ai/?cupom=site"
@@ -40,9 +43,13 @@ export default function SolucoesCorporativas() {
 const PlansSection = styled.section.attrs({
   id: "solucoes-corporativas",
 })`
-  scroll-margin-top: 130px; /* desktop INALTERADO */
-  padding: 5rem 2rem;
+  scroll-margin-top: 130px;
+  padding: 5rem 0; /* 🔥 remove padding lateral */
   background: ${({ theme }) => theme.colors.gray[100]};
+`;
+
+const SectionTitleWrapper = styled.div`
+  width: 100%;
 `;
 
 const PlansGrid = styled.div`
@@ -69,6 +76,7 @@ const SectionTitle = styled.div`
   justify-content: center;
   text-align: center;
   margin-bottom: 3rem;
+ max-width: 100%;
 
   /* ===== DESKTOP ===== */
   h2 {
@@ -112,7 +120,7 @@ const SectionTitle = styled.div`
     p {
       font-size: 1.3rem;
       line-height: 1.4;
-      width: 100%;
+      max-width: 100%;
       white-space: normal;
     }
   }
@@ -154,7 +162,7 @@ const HeroButtonSide = styled.a`
 
   /* 📱 Mobile */
   @media (max-width: 768px) {
-    width: 100%;
+   width: 82%;
     height: 58px;
     font-size: 1.1rem;
 
