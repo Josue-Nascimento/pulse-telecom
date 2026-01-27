@@ -183,6 +183,9 @@ const MobileButtonLink = styled.button`
   &:hover {
     color: #00ff66;
   }
+    @media (max-width: 1024px) {
+    font-size: 30px;
+  }
 `;
 
 /* =====================
@@ -200,6 +203,7 @@ const NavItemButton = styled.button`
   &:hover {
     color: #00ff66;
   }
+  
 `;
 
 const Nav = styled.nav`
@@ -213,6 +217,7 @@ const Nav = styled.nav`
   left: 0;
   width: 100%;
   z-index: 1000;
+  
 `;
 
 const NavContainer = styled.div`
@@ -223,6 +228,7 @@ const NavContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  
 `;
 
 const Logo = styled(Link)`
@@ -238,8 +244,8 @@ const DesktopNav = styled.div`
 
   @media (max-width: 1024px) {
     display: none;
-    
   }
+  
 `;
 
 const NavItem = styled(Link)<{ $active?: boolean }>`
@@ -251,6 +257,8 @@ const NavItem = styled(Link)<{ $active?: boolean }>`
   &:hover {
     color: #00ff66;
   }
+
+  
 `;
 
 /* ===== AÇÕES DIREITA ===== */
@@ -262,7 +270,9 @@ const RightGroup = styled.div`
 
   @media (max-width: 1024px) {
     display: none;
+    
   }
+
 `;
 
 const TopActions = styled.div`
@@ -278,6 +288,10 @@ const MobileClientArea = styled.a`
   color: #fff;
   font-size: 1.2rem;
   cursor: pointer;
+   @media (max-width: 1024px) {
+    font-size: 30px;
+  }
+  
 `;
 
 
@@ -292,11 +306,13 @@ const ClientArea = styled.a`
   &:hover {
     text-decoration: underline;
   }
+  
 `;
 
 const SocialIcon = styled.a`
   color: #fff;
   display: flex;
+  
 `;
 
 const CTAButton = styled.a`
@@ -324,6 +340,8 @@ const CTAButton = styled.a`
 
   @media (max-width: 1024px) {
     margin-top: 1rem;
+    width: 40%;
+    height: 70px;
   }
 `;
 
@@ -342,6 +360,7 @@ const MobileButton = styled.button<{ $open?: boolean }>`
   @media (max-width: 1024px) {
     display: block;
   }
+  
 `;
 
 const MobileMenu = styled.div<{ $open: boolean }>`
@@ -364,4 +383,7 @@ const MobileMenu = styled.div<{ $open: boolean }>`
   pointer-events: ${({ $open }) => ($open ? "auto" : "none")};
 
   transition: all 0.4s ease;
+   @media (max-width: 1024px) {
+    font-size: 30px;
+  }
 `;

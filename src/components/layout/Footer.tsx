@@ -131,20 +131,45 @@ const Left = styled.div`
     color: #e5e7eb;
     font-weight: 500;
   }
+
   p.cnpj {
     margin-top: 5px;
     font-size: 10px;
   }
-@media (max-width: 900px) {
-  p:first-of-type {
-    margin: 0 auto;
- 
+
+  /* ===== TABLET (somente) ===== */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h3 {
       text-align: center;
-     
-      max-width: 90%; 
+      font-size: 25px;
+    }
+
+    p {
+      text-align: center;
+    }
+
+    p.cnpj {
+      text-align: center;
+      font-size: 15px;
+      max-width: 100%;
+    }
+  }
+
+  /* ===== MOBILE (mantido) ===== */
+  @media (max-width: 900px) {
+    p:first-of-type {
+      margin: 0 auto;
+      text-align: center;
+      font-size: 1.2rem;
+      max-width: 90%;
     }
   }
 `;
+
 
 /* CENTRO */
 const Center = styled.div`

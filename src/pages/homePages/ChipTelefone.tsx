@@ -22,7 +22,7 @@ export default function ChipTelefone() {
               Conectividade completa para o seu dia a dia. Oferecemos telefonia fixa com chamadas nítidas e rede móvel 5G com ultravelocidade para você ficar sempre online. A solução ideal para casa, escritório e onde mais você for.
             </p>
 
-            <ActionButton href="#">Soluções para comunicação</ActionButton>
+            <ActionButton  href="https://pulsetelecom.conecte.ai/?cupom=site">Soluções para comunicação</ActionButton>
           </Text>
         </Content>
       </Section>
@@ -42,6 +42,11 @@ const Section = styled.section`
     padding: 4rem 1.5rem;
     height: 700px;
     display: flex;
+  }
+   @media (max-width: 1024px) {
+  height: 900px;
+  display: flex;
+  align-items: center;
   }
 `;
 
@@ -132,10 +137,15 @@ const Text = styled.div`
   h2 {
     font-size: 2.8rem;
     margin-bottom: 1.5rem;
-font-weight:bold ;
+    font-weight: bold;
+
     @media (max-width: 768px) {
       font-size: 2.1rem;
-      
+    }
+
+    /* ✅ TABLET */
+    @media (min-width: 769px) and (max-width: 1024px) {
+      font-size: 3.5rem;
     }
   }
 
@@ -150,8 +160,15 @@ font-weight:bold ;
       margin: 0 auto 2rem;
       font-size: 1.3rem;
     }
+
+    /* ✅ TABLET */
+    @media (min-width: 769px) and (max-width: 1024px) {
+      font-size: 2.3rem;
+      max-width: 90%;
+    }
   }
 `;
+
 
 
 const ActionButton = styled.a`
@@ -171,10 +188,19 @@ const ActionButton = styled.a`
   &:hover {
     transform: translateY(-2px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-  
   }
-    @media (max-width: 900px) {
-      max-width: 100%;
-      font-size: 1.1rem;
-    }
+
+  @media (max-width: 900px) {
+    max-width: 100%;
+    font-size: 1.1rem;
+  }
+
+  /* ✅ TABLET */
+  @media (min-width: 769px) and (max-width: 1024px) {
+      width: 80%;
+      font-size: 2rem;
+      height: 80px;
+    
+  }
 `;
+

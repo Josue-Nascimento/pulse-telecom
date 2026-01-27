@@ -37,65 +37,6 @@ export default function SolucoesCorporativas() {
     </>
   );
 }
-const SectionTitle = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  margin-bottom: 3rem;
-
-  h2 {
-    font-size: 2.9rem; /* 🖥 desktop (INALTERADO) */
-    font-weight: bold;
-    background: linear-gradient(90deg, #0b1a6e, #1f2fbf, #3b4cff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 1rem;
-  }
-
-  p {
-    display: inline-block;
-    font-weight: 500;
-    font-size: 18px; /* 🖥 desktop (INALTERADO) */
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    white-space: nowrap;
-  }
-
-  /* 📱 Tablet */
-  @media (max-width: ${({ theme }) => theme.breakpoints.tablet}) {
-    h2 {
-      font-size: 2.3rem;
-    }
-
-    p {
-      white-space: normal;
-      font-size: 1rem;
-    }
-  }
-
-  /* 📱 Mobile */
-@media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
-    padding: 0 20px; /* Evita que o texto encoste nas bordas da tela */
-
-    h2 {
-      font-size: 2rem;
-      line-height: 1.1;
- 
-    }
-
-    p {
-      display: flex;      /* Muda de flex para block para o text-align funcionar melhor */
-      font-size: 1.3rem;   /* Um pouco menor para caber melhor na tela */
-      line-height: 1.4;
-  
-      width: 100%;
-    }
-  }
-`;
-
 const PlansSection = styled.section.attrs({
   id: "solucoes-corporativas",
 })`
@@ -113,11 +54,70 @@ const PlansGrid = styled.div`
   gap: 3rem;
 
   /* TABLET + MOBILE */
-  @media (max-width: 1024px) {
-    flex-direction: column;
+@media (max-width: 1024px) {
+  min-height: auto;
+  padding-bottom: 2rem; /* controla o espaço sem quebrar layout */
+  flex-direction: column;
+  text-align: center;
+}
+
+`;
+const SectionTitle = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 3rem;
+
+  /* ===== DESKTOP ===== */
+  h2 {
+    font-size: 2.9rem; /* 🖥 desktop (INALTERADO) */
+    font-weight: bold;
+    background: linear-gradient(90deg, #0b1a6e, #1f2fbf, #3b4cff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-weight: 500;
+    font-size: 18px; /* 🖥 desktop (INALTERADO) */
     text-align: center;
+    white-space: nowrap;
+    display: block;
+  }
+
+  /* ===== TABLET REAL ===== */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    h2 {
+      font-size: 3rem;
+    }
+
+    p {
+      white-space: normal;
+      font-size: 2.3rem;
+    }
+  }
+
+  /* ===== MOBILE ===== */
+  @media (max-width: ${({ theme }) => theme.breakpoints.mobile}) {
+    padding: 0 20px;
+
+    h2 {
+      font-size: 2rem;
+      line-height: 1.1;
+    }
+
+    p {
+      font-size: 1.3rem;
+      line-height: 1.4;
+      width: 100%;
+      white-space: normal;
+    }
   }
 `;
+
 
 const HeroButtonSide = styled.a`
   display: inline-flex;
@@ -143,10 +143,13 @@ const HeroButtonSide = styled.a`
 
   /* 📱 Tablet */
   @media (max-width: 1024px) {
-    width: 70%;
-    height: 64px;
-    font-size: 1.05rem;
+    width: 80%;
+    height: 80px;
+    font-size: 2rem;
     order: 2;
+     .arrow {
+      display: none;
+    }
   }
 
   /* 📱 Mobile */

@@ -31,49 +31,48 @@ export default function CovarageSection() {
     "Resende",
     "Cachoeira Paulista",
     "Valença",
-    "Visconde de Mauá"
+    "Visconde de Mauá",
   ];
-const firstRow = cities.slice(0, 5); // 5 cidades
-const secondRow = cities.slice(5, 8); // 3 cidades
+  const firstRow = cities.slice(0, 5); // 5 cidades
+  const secondRow = cities.slice(5, 8); // 3 cidades
 
   return (
     <>
-     <CoverageSection id="cobertura">
-  <CoverageContent>
-    <h2>Nossas Lojas</h2>
+      <CoverageSection id="cobertura">
+        <CoverageContent>
+          <h2>Nossas Lojas</h2>
 
-    <CitiesRow>
-      {firstRow.map((city) => (
-        <CityTag to="/cobertura" key={city}>
-          <MapPin size={18} />
-          {city}
-        </CityTag>
-      ))}
-    </CitiesRow>
+          <CitiesRow>
+            {firstRow.map((city) => (
+              <CityTag to="/cobertura" key={city}>
+                <MapPin size={18} />
+                {city}
+              </CityTag>
+            ))}
+          </CitiesRow>
 
-    <CitiesRow>
-      {secondRow.map((city) => (
-        <CityTag to="/cobertura" key={city}>
-          <MapPin size={18} />
-          {city}
-        </CityTag>
-      ))}
-    </CitiesRow>
-
-  </CoverageContent>
-</CoverageSection>
-
+          <CitiesRow>
+            {secondRow.map((city) => (
+              <CityTag to="/cobertura" key={city}>
+                <MapPin size={18} />
+                {city}
+              </CityTag>
+            ))}
+          </CitiesRow>
+        </CoverageContent>
+      </CoverageSection>
     </>
   );
 }
-
 
 const CoverageSection = styled.section`
   padding: 5rem 2rem;
 
   @media (max-width: 768px) {
     padding: 4rem 1.5rem;
-    
+  }
+  @media (max-width: 1024px) {
+    height: 400px;
   }
 `;
 const CitiesRow = styled.div`
@@ -84,7 +83,7 @@ const CitiesRow = styled.div`
   /* 📱 TABLET */
   @media (max-width: 1024px) {
     flex-wrap: wrap; /* 🔥 QUEBRA NO TABLET */
-    gap: 0.8rem;
+    gap: 1rem;
   }
   @media (max-width: 480px) {
     flex-wrap: wrap; /* no mobile pode quebrar */
@@ -96,7 +95,7 @@ const CoverageContent = styled.div`
   margin: 0 auto;
   text-align: center;
 
-h2 {
+  h2 {
     font-size: 2.5rem; /* Desktop */
     margin-bottom: 1rem;
     font-weight: bold;
@@ -107,13 +106,13 @@ h2 {
     /* 📱 Mobile/Tablet */
     @media (max-width: 768px) {
       font-size: 2rem; /* Alterado de 2rem para 1.7rem */
-      line-height: 1.2;  /* Adicionado para evitar que as linhas fiquem grudadas */
+      line-height: 1.2; /* Adicionado para evitar que as linhas fiquem grudadas */
+    }
+    @media (max-width: 1024px) {
+      font-size: 3rem;
     }
   }
 `;
-
-
-
 
 const CityTag = styled(Link)`
   display: inline-flex;
@@ -128,11 +127,13 @@ const CityTag = styled(Link)`
   font-weight: bolder;
   color: #ffffff;
   text-decoration: none;
- display: flex;
+  display: flex;
   align-items: center;
   justify-content: center;
   gap: 0.6rem;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
 
   &:hover {
     transform: translateY(-3px);
@@ -144,9 +145,8 @@ const CityTag = styled(Link)`
   }
   /* 📱 TABLET */
   @media (max-width: 1024px) {
-    min-width: 160px; /* 🔥 PADRONIZA TAMANHO */
-    font-size: 0.9rem;
-    padding: 0.65rem 1.2rem;
+    min-width: 200px; /* 🔥 PADRONIZA TAMANHO */
+    font-size: 1.2rem;
   }
   @media (max-width: 480px) {
     font-size: 1rem;

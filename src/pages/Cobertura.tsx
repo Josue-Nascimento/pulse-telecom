@@ -43,12 +43,12 @@ const Cobertura: React.FC = () => {
     {
       name: "Valença",
       state: "Rio de Janeiro",
-      address: "Av. Sarah Kubitschek, 37, Cachoeira Paulista - SP, 12630-000",
+      address: "Praça Martinho Nóbrega, 10, loja 7 - Centro, Vassouras - RJ",
     },
     {
       name: "Visconde de Mauá",
       state: "Rio de Janeiro",
-      address: "Av. Sarah Kubitschek, 37, Cachoeira Paulista - SP, 12630-000",
+      address: "RJ-151, Itatiaia - RJ, 27580-000 - Maringá RJ em frente ao bar do Ted",
     },
   ];
 

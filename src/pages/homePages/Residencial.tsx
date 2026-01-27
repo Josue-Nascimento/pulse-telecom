@@ -39,7 +39,11 @@ const HeroSection = styled.section`
   padding: 5rem 2rem;
   background: ${({ theme }) => theme.colors.white};
   scroll-margin-top: 120px;
-
+ @media (max-width: 1024px) {
+  height: 900px;
+  display: flex;
+  align-items: center;
+  }
   @media (max-width: 768px) {
     height: 670px;
     display: flex;
@@ -62,8 +66,11 @@ const HeroContent = styled.div`
 
 
 const HeroText = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   h1 {
-    font-size: 3rem;
+    font-size: 3.5rem;
     margin-bottom: 1.2rem;
 font-weight:bold ;
     background: linear-gradient(90deg, #0b1a6e, #1f2fbf, #3b4cff);
@@ -73,18 +80,17 @@ font-weight:bold ;
     @media (max-width: 768px) {
       font-size:36px;
       line-height: 1.2;
-    
     }
   }
 
-  p {
-    font-size: 1.1rem;
-    max-width: 520px;
+ && p {
+    font-size: 2.3rem; /* 👈 agora vai funcionar */
+    max-width: 90%;
     margin-bottom: 2rem;
 
     @media (max-width: 768px) {
       margin: 0 auto 2rem;
-      font-size: 1.3rem;
+      font-size: 1.5rem;
       
     }
   }
@@ -116,7 +122,12 @@ const HeroButton = styled.a`
 
   /* ===== TABLET ===== */
   @media (max-width: 1024px) {
-    width: 70%;
+    width: 80%;
+      font-size: 2rem;
+      height: 80px;
+      svg {
+      display: none; /* 🔥 some a seta */
+    }
   }
 
   /* ===== MOBILE ===== */
@@ -139,6 +150,7 @@ const HeroImages = styled.div`
 
   @media (max-width: 1024px) {
     margin: 0 auto;
+    display: none;
   }
 
   @media (max-width: 768px) {
@@ -163,6 +175,7 @@ const MainImage = styled.div`
     @media (max-width: 768px) {
       width: 200px;
       height: 200px;
+      
     }
   }
     @media (max-width: 1024px) {

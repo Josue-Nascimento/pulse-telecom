@@ -47,6 +47,12 @@ const HighlightWrapper = styled.section`
   @media (max-width: 480px) {
     padding: 2rem 1rem;
   }
+   @media (max-width: 1024px) {
+  height: 900px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  }
 `;
 
 const HighlightGrid = styled.div`
@@ -83,8 +89,7 @@ const HighlightTitle = styled.div`
 
     /* 📱 TABLET */
     @media (max-width: 900px) {
-      font-size: 2.4rem;
-      line-height: 1.2;
+      font-size: 3.3rem;
       text-align: center;
       max-width: 100%;
       word-break: normal;
@@ -121,8 +126,8 @@ const HighlightDescription = styled.div`
     }
 
     /* 📱 TABLET */
-    @media (max-width: 900px) {
-      font-size: 1.3rem;
+    @media (max-width: 1024px) {
+      font-size: 2.3rem;
     }
 
     /* 📱 MOBILE */
@@ -167,10 +172,11 @@ const HighlightButton = styled.a`
   }
 
   /* 📱 TABLET */
-  @media (max-width: 900px) {
-    width: 65%;
-    height: 56px;
-    font-size: 16px;
+   @media (max-width: 1024px) {
+    width: 80%;
+    height: 80px;
+    font-size: 2rem;
+    order: 2;
   }
 
   /* 📱 MOBILE */
