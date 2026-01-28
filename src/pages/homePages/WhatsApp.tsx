@@ -152,12 +152,12 @@ const HighlightButton = styled.a`
   padding: 0.5rem 2.4rem;
   border-radius: 10px;
   font-weight: 700;
-  font-size: 15px; /* 🖥 PC INALTERADO */
+  font-size: 18px; /* 🖥 PC INALTERADO */
   text-decoration: none;
   transition: all 0.25s ease;
 
-  width: 20%; /* 🖥 PC INALTERADO */
-  height: 50px; /* 🖥 PC INALTERADO */
+  width: 30%; /* 🖥 PC INALTERADO */
+  height: 70px; /* 🖥 PC INALTERADO */
 
   display: inline-flex;
   justify-content: center;

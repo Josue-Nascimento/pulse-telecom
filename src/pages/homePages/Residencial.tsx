@@ -50,10 +50,10 @@ const HeroSection = styled.section`
 `;
 
 const HeroContent = styled.div`
-  max-width: 1280px;
+max-width:90%;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
+  grid-template-columns: 2fr 1fr;
   align-items: center;
   gap: 3rem;
 
@@ -68,50 +68,73 @@ const HeroText = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+   max-width: 100%;
+  /* NÃO mexemos no desktop */
+
   h1 {
-    font-size: 3.5rem;
+ 
+    font-size: 3rem;
     margin-bottom: 1.2rem;
-font-weight:bold ;
+    font-weight: bold;
+
     background: linear-gradient(90deg, #0b1a6e, #1f2fbf, #3b4cff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
+    /* TABLET */
+    @media (min-width: 769px) and (max-width: 1024px) {
+      font-size: 3rem;
+      max-width: 90%;
+      text-align: center;
+    }
+
+    /* MOBILE */
     @media (max-width: 768px) {
-      font-size:35px;
+      font-size: 38px;
       line-height: 1.1;
-       max-width: 96%;
+      max-width: 96%;
+      text-align: center;
     }
   }
 
- && p {
-    font-size: 2.3rem; /* 👈 agora vai funcionar */
-    max-width: 95%;
+  && p {
+    font-size: 1.5rem;
+    max-width: 100%;
     margin-bottom: 2rem;
 
-    @media (max-width: 768px) {
-      margin: 0 auto 2rem;
-      font-size: 1.3rem;
-      
+    /* TABLET */
+    @media (min-width: 768px) and (max-width: 1024px) {
+      font-size: 2.3rem;
+      max-width: 80%;
+      text-align: center;
+    }
+
+    /* MOBILE */
+    @media (max-width: 767px) {
+      height: 200px;
+      font-size: 1.1rem;
+      max-width: 100%;
+      text-align: center;
     }
   }
 `;
 
 
+
 const HeroButton = styled.a`
-  display: inline-flex;
+ display: inline-flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
+  gap: 0.6rem;
 
-  gap: 0.5rem;
-  width: 42%;
-  height: 60px;
+  width: 50%; /* 🖥 desktop INALTERADO */
+  height: 80px; /* 🖥 desktop INALTERADO */
 
   background: linear-gradient(90deg, #0b1a6e, #1f2fbf, #3b4cff);
   color: #ffffff;
-  padding: 0.9rem 2.2rem;
-  border-radius: 10px;
+  font-size: 20px; /* 🖥 desktop INALTERADO */
   font-weight: 600;
+  border-radius: 10px;
   text-decoration: none;
   transition: all 0.3s ease;
 
@@ -123,14 +146,13 @@ const HeroButton = styled.a`
   /* ===== TABLET ===== */
   @media (max-width: 1024px) {
     width: 80%;
-      font-size: 2rem;
-      height: 80px;
-      svg {
+    font-size: 2rem;
+    height: 80px;
+    svg {
       display: none; /* 🔥 some a seta */
     }
   }
-
-  /* ===== MOBILE ===== */
+  
   @media (max-width: 768px) {
     width: 100%;
     height: 58px;
@@ -140,6 +162,7 @@ const HeroButton = styled.a`
       display: none; /* 🔥 some a seta */
     }
   }
+  /* ===== MOBILE ===== */
 `;
 
 
@@ -154,7 +177,7 @@ const HeroImages = styled.div`
   }
 
   @media (max-width: 768px) {
-    width: 300px;
+    width: 350px;
     height: 300px;
     display: none;
   }

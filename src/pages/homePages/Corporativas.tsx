@@ -133,7 +133,7 @@ const HeroButtonSide = styled.a`
   justify-content: center;
   gap: 0.6rem;
 
-  width: 30%; /* 🖥 desktop INALTERADO */
+  width: 38%; /* 🖥 desktop INALTERADO */
   height: 80px; /* 🖥 desktop INALTERADO */
 
   background: linear-gradient(90deg, #0b1a6e, #1f2fbf, #3b4cff);
