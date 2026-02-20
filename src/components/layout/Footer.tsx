@@ -34,10 +34,19 @@ const Footer: React.FC = () => {
     </>
   )}
 
-  <h3>Contrato de prestação de serviços</h3>
-  <p className="cnpj">
-    PULSE GESTÃO DE DADOS LTDA 07.054.431/0001-80
-  </p>
+<h3>
+  <a 
+    href="/contrato.pdf" 
+    target="_blank" 
+    rel="noopener noreferrer"
+  >
+    Contrato de prestação de serviços
+  </a>
+</h3>
+
+<p className="cnpj">
+  PULSE GESTÃO DE DADOS LTDA 07.054.431/0001-80
+</p>
 </Left>
 
 
